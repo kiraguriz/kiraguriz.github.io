@@ -8,148 +8,270 @@
     <meta property="og:title" content="Haitian Zhu - Software Engineer">
     <meta property="og:description" content="Mobile apps, AI-assisted workflows, and data-backed product systems.">
     <meta property="og:image" content="https://kiraguriz.github.io/assets/images/onlyplanes-hero.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kiraguriz.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://kiraguriz.github.io/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f3dcf'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' fill='white' font-family='Inter,system-ui,sans-serif' font-weight='700' font-size='18'%3EH%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
-  <body>
+  <body class="studio">
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <nav class="nav" aria-label="Primary">
-        <a class="brand" href="index.html">Haitian Zhu</a>
-        <div class="nav-links">
+
+    <header class="studio-header">
+      <div class="studio-header-inner">
+        <a class="studio-brand" href="index.html">
+          <span class="studio-brand-mark" aria-hidden="true">H</span>
+          <span class="studio-brand-text">
+            <span class="studio-brand-name">Haitian Zhu</span>
+            <span class="studio-brand-meta">Software engineer · Chicago</span>
+          </span>
+        </a>
+        <nav class="studio-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#now">Now</a>
           <a href="#work">Work</a>
           <a href="resume.html">Resume</a>
           <a href="https://github.com/kiraguriz">GitHub</a>
           <a href="https://linkedin.com/in/haitian-daniel-zhu">LinkedIn</a>
-          <a href="mailto:haitiandzhu@gmail.com">Email</a>
-        </div>
-      </nav>
+        </nav>
+        <a class="studio-cta-pill" href="mailto:haitiandzhu@gmail.com">
+          <span class="studio-cta-dot" aria-hidden="true"></span>
+          Open to summer '26
+        </a>
+      </div>
     </header>
 
     <main id="main">
-      <section class="hero">
-        <div class="hero-inner">
-          <p class="eyebrow">UIC Computer Science - Mobile, AI, Data</p>
-          <h1>Haitian Zhu</h1>
-          <p class="hero-copy">I build cross-platform apps, AI-assisted workflows, and product systems that connect clean interfaces with real data, backend services, and release discipline.</p>
-          <div class="hero-actions">
-            <a class="button" href="#work">View work</a>
-            <a class="button secondary" href="resume.html">Resume</a>
+      <section class="studio-hero" aria-labelledby="hero-heading">
+        <div class="studio-hero-card">
+          <div class="studio-hero-portrait">
+            <div class="studio-portrait" role="img" aria-label="Portrait placeholder">
+              <span class="studio-portrait-eyebrow">[ Portrait ]</span>
+              <span class="studio-portrait-title">drop a photo<br>of you here</span>
+            </div>
+            <div class="studio-portrait-caption">
+              <span>Chicago, IL</span>
+              <span>May 2026</span>
+            </div>
+          </div>
+          <div class="studio-hero-copy">
+            <span class="studio-chip">★ Hi there</span>
+            <h1 id="hero-heading" class="studio-display studio-hero-h1">
+              I'm Haitian.<br>
+              I make <em class="studio-accent-italic">software</em><br>
+              for people.
+            </h1>
+            <p class="studio-lede">
+              Computer-science student at UIC, originally from China, living between Naperville and Chicago. I build mobile apps and the systems underneath them &mdash; and I keep this site as a way to share what I'm up to.
+            </p>
+            <div class="studio-hero-actions">
+              <a class="studio-btn studio-btn-accent" href="#about">Read more about me <span aria-hidden="true">→</span></a>
+              <a class="studio-btn studio-btn-outline" href="mailto:haitiandzhu@gmail.com">Say hi</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="signal-heading">
-        <p class="section-kicker">What I bring</p>
-        <h2 class="section-heading" id="signal-heading">Product engineering across mobile, AI, and data.</h2>
-        <p class="section-lede">My strongest work sits where user-facing apps need practical systems behind them: local data models, external APIs, AI integration, backend contracts, tests, and deployment gates.</p>
-        <div class="signal-grid">
-          <article class="signal">
-            <strong>Cross-platform mobile</strong>
-            <p>Flutter and React Native apps for iOS and Android, with real state, offline behavior, native integrations, and focused UI polish.</p>
-          </article>
-          <article class="signal">
-            <strong>AI-assisted products</strong>
-            <p>Gemini-backed coaching, local agent workflows, and review-first automation where the human stays in control.</p>
-          </article>
-          <article class="signal">
-            <strong>Data and backend systems</strong>
-            <p>SQLite, Supabase, Fastify, Java Spring Boot, APIs, data pipelines, and operational checks that make apps reliable.</p>
-          </article>
+      <section class="studio-about" id="about" aria-labelledby="about-heading">
+        <div class="studio-row">
+          <div class="studio-row-head">
+            <span class="studio-chip-dim">01 / About</span>
+            <h2 id="about-heading" class="studio-display studio-section-h2">How I got here.</h2>
+          </div>
+          <div class="studio-prose">
+            <p>I came to software the way most of my classmates did &mdash; through curiosity about the apps on my phone. What kept me here was harder to name: somewhere between the satisfaction of a clean database migration and the strange comfort of a green test suite at 1 a.m.</p>
+            <p>The work I'm proudest of tends to be quiet. Apps that don't lose your data. APIs that don't surprise their callers. Coaching features that admit when the model is unsure. I'd rather ship the smallest reliable thing and earn the next piece than build a demo that does ten things badly.</p>
+            <p>Lately I've been thinking a lot about how AI fits into products without <em>becoming</em> the product. I want models to feel like good colleagues &mdash; show their work, ask before doing anything destructive, fail gracefully.</p>
+          </div>
         </div>
       </section>
 
-      <section class="section" id="work" aria-labelledby="work-heading">
-        <p class="section-kicker">Selected work</p>
-        <h2 class="section-heading" id="work-heading">Four projects that show the full stack of my work.</h2>
-        <div class="project-grid">
-          <a class="project-card" href="case-studies/workout-movement-tracker.html">
-            <div class="project-media icon-stage">
-              <img src="assets/images/workout-logo.png" alt="Workout Movement Tracker app logo">
+      <section class="studio-now-section" id="now" aria-labelledby="now-heading">
+        <div class="studio-now-row">
+          <article class="studio-now-card" aria-labelledby="now-heading">
+            <div class="studio-now-head">
+              <span class="studio-chip-dark">02 / Now</span>
+              <span class="studio-now-updated">Updated May 20</span>
             </div>
-            <div class="project-body">
-              <h3>Workout Movement Tracker</h3>
-              <p>Flutter fitness app with Gemini coaching, ML Kit pose support, SQLite persistence, food data integration, and goal engines.</p>
-              <div class="tag-row">
-                <span class="tag">Flutter</span>
-                <span class="tag">Gemini</span>
-                <span class="tag">SQLite</span>
-                <span class="tag">ML Kit</span>
+            <h2 id="now-heading" class="studio-display studio-now-h2">
+              What I'm up to <em class="studio-now-italic">right now.</em>
+            </h2>
+            <dl class="studio-now-list">
+              <div class="studio-now-item">
+                <dt>Building</dt>
+                <dd>A proper SQLite migration system for the workout app.</dd>
               </div>
-            </div>
-          </a>
+              <div class="studio-now-item">
+                <dt>Reading</dt>
+                <dd>"Designing Data-Intensive Applications" &mdash; slowly, with many tabs open.</dd>
+              </div>
+              <div class="studio-now-item">
+                <dt>Studying</dt>
+                <dd>Go and a little Rust. Trying to finally understand Raft.</dd>
+              </div>
+              <div class="studio-now-item">
+                <dt>Listening</dt>
+                <dd>Mostly Mandopop on the bus, Aphex Twin when I need to focus.</dd>
+              </div>
+              <div class="studio-now-item">
+                <dt>Watching</dt>
+                <dd>Severance, season three. Cautiously optimistic.</dd>
+              </div>
+              <div class="studio-now-item">
+                <dt>Eating</dt>
+                <dd>Whatever's open near Halsted at 11 p.m. &mdash; usually noodles.</dd>
+              </div>
+            </dl>
+          </article>
 
-          <a class="project-card" href="case-studies/onlyplanes.html">
-            <div class="project-media">
-              <img src="assets/images/onlyplanes-747.png" alt="Aircraft at sunset from the OnlyPlanes project assets">
-            </div>
-            <div class="project-body">
-              <h3>OnlyPlanes</h3>
-              <p>Aviation mobile app with real-time flight tracking, map UX, Fastify backend services, shared contracts, and release hardening.</p>
-              <div class="tag-row">
-                <span class="tag">React Native</span>
-                <span class="tag">Expo</span>
-                <span class="tag">Fastify</span>
-                <span class="tag">Maps</span>
+          <div class="studio-now-side">
+            <article class="studio-off-card" aria-labelledby="off-heading">
+              <span class="studio-chip-dim">03 / Off the clock</span>
+              <h2 id="off-heading" class="studio-display studio-off-h2">Things that aren't code.</h2>
+              <div class="studio-off-grid">
+                <div class="studio-off-item">
+                  <span class="studio-off-emoji" aria-hidden="true">📷</span>
+                  <div>
+                    <strong>Photography</strong>
+                    <p>35mm street photos. Rarely finish a roll the same year I start it.</p>
+                  </div>
+                </div>
+                <div class="studio-off-item">
+                  <span class="studio-off-emoji" aria-hidden="true">🚶</span>
+                  <div>
+                    <strong>Long walks</strong>
+                    <p>Lakefront trail, Belmont down to Navy Pier, any weather.</p>
+                  </div>
+                </div>
+                <div class="studio-off-item">
+                  <span class="studio-off-emoji" aria-hidden="true">📚</span>
+                  <div>
+                    <strong>Bookstores</strong>
+                    <p>Seminary Co-op and Pilsen Community Books. Rarely leave empty-handed.</p>
+                  </div>
+                </div>
+                <div class="studio-off-item">
+                  <span class="studio-off-emoji" aria-hidden="true">☕</span>
+                  <div>
+                    <strong>Coffee</strong>
+                    <p>Hand-pulled. Light roast. No sugar. I have opinions.</p>
+                  </div>
+                </div>
+                <div class="studio-off-item">
+                  <span class="studio-off-emoji" aria-hidden="true">🍜</span>
+                  <div>
+                    <strong>Cooking</strong>
+                    <p>My mother's recipes, badly approximated. Improving.</p>
+                  </div>
+                </div>
+                <div class="studio-off-item">
+                  <span class="studio-off-emoji" aria-hidden="true">🀄</span>
+                  <div>
+                    <strong>Mandarin</strong>
+                    <p>Trying to keep my written Mandarin from rusting.</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </a>
+            </article>
 
-          <a class="project-card" href="case-studies/vbird.html">
-            <div class="project-media icon-stage">
-              <img src="assets/images/vbird-icon.png" alt="vBird app icon">
-            </div>
-            <div class="project-body">
-              <h3>vBird</h3>
-              <p>Bird identification training app with Expo, Supabase, Postgres, Gemini-assisted content generation, and auditable release gates.</p>
-              <div class="tag-row">
-                <span class="tag">Expo</span>
-                <span class="tag">Supabase</span>
-                <span class="tag">Python</span>
-                <span class="tag">Gemini</span>
+            <a class="studio-pitch" href="mailto:haitiandzhu@gmail.com">
+              <div>
+                <span class="studio-pitch-eyebrow">Currently</span>
+                <span class="studio-pitch-headline">Open to SWE internships,<br>summer 2026.</span>
               </div>
-            </div>
-          </a>
-
-          <a class="project-card" href="case-studies/auto-apply.html">
-            <div class="project-media">
-              <div class="code-panel" aria-label="Auto Apply system log preview">
-                <span>session.create(job_url, profile)</span>
-                <span>observe.page()</span>
-                <span>plan.next_action()</span>
-                <span>pause_at: captcha | mfa | final_submit</span>
-                <span>human_review_required: true</span>
-              </div>
-            </div>
-            <div class="project-body">
-              <h3>Auto-Apply / AI Job Agent</h3>
-              <p>Local-first workflow for job discovery, browser automation, cover letters, traces, and review-first application preparation.</p>
-              <div class="tag-row">
-                <span class="tag">Python</span>
-                <span class="tag">Playwright</span>
-                <span class="tag">React Native</span>
-                <span class="tag">Local AI</span>
-              </div>
-            </div>
-          </a>
+              <span class="studio-pitch-btn">Say hi <span aria-hidden="true">→</span></span>
+            </a>
+          </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="more-heading">
-        <p class="section-kicker">Also building</p>
-        <h2 class="section-heading" id="more-heading">Systems with practical constraints.</h2>
-        <p class="section-lede">Other work includes GroWu, a React Native and Java Spring Boot personal finance app; MapPulse, a campus-only map discovery MVP; an Alpaca paper-trading research system; and coursework projects in JavaFX, sockets, Python, and SQL.</p>
-        <div class="section-actions">
-          <a class="button light" href="resume.html">Read resume</a>
-          <a class="button light" href="https://github.com/kiraguriz">See GitHub</a>
+      <section class="studio-work" id="work" aria-labelledby="work-heading">
+        <div class="studio-work-card">
+          <div class="studio-work-head">
+            <span class="studio-chip-dim">04 / Selected work</span>
+            <h2 id="work-heading" class="studio-display studio-section-h2">Things I've made.</h2>
+            <p class="studio-work-blurb">A short index, not a portfolio. Tap any row for the longer case study.</p>
+            <div class="studio-phones" aria-hidden="true">
+              <span class="studio-phone studio-phone-violet"></span>
+              <span class="studio-phone studio-phone-navy"></span>
+              <span class="studio-phone studio-phone-sand"></span>
+            </div>
+          </div>
+          <div class="studio-work-list">
+            <a class="studio-work-row" href="case-studies/workout-movement-tracker.html">
+              <span class="studio-work-num">01</span>
+              <span class="studio-work-year">2026</span>
+              <span class="studio-work-body">
+                <span class="studio-work-title">Workout Movement Tracker</span>
+                <span class="studio-work-desc">Flutter fitness app with a Gemini coach and a SQLite layer that won't lose your data.</span>
+              </span>
+              <span class="studio-work-stack">Flutter · Gemini · SQLite</span>
+            </a>
+            <a class="studio-work-row" href="case-studies/onlyplanes.html">
+              <span class="studio-work-num">02</span>
+              <span class="studio-work-year">2025</span>
+              <span class="studio-work-body">
+                <span class="studio-work-title">OnlyPlanes</span>
+                <span class="studio-work-desc">Aviation companion &mdash; live flight tracking over a small Fastify backend.</span>
+              </span>
+              <span class="studio-work-stack">React Native · Fastify · Maps</span>
+            </a>
+            <a class="studio-work-row" href="case-studies/vbird.html">
+              <span class="studio-work-num">03</span>
+              <span class="studio-work-year">2025</span>
+              <span class="studio-work-body">
+                <span class="studio-work-title">vBird</span>
+                <span class="studio-work-desc">A bird-ID trainer built on Supabase with Gemini-assisted curriculum.</span>
+              </span>
+              <span class="studio-work-stack">Expo · Supabase · Gemini</span>
+            </a>
+            <a class="studio-work-row" href="case-studies/auto-apply.html">
+              <span class="studio-work-num">04</span>
+              <span class="studio-work-year">2025</span>
+              <span class="studio-work-body">
+                <span class="studio-work-title">Auto-Apply</span>
+                <span class="studio-work-desc">A local-first agent for review-first job applications. Human stays in the loop.</span>
+              </span>
+              <span class="studio-work-stack">Python · Playwright · Local AI</span>
+            </a>
+            <span class="studio-work-row studio-work-row-static">
+              <span class="studio-work-num">05</span>
+              <span class="studio-work-year">&mdash;</span>
+              <span class="studio-work-body">
+                <span class="studio-work-title">Other things</span>
+                <span class="studio-work-desc">GroWu, MapPulse, a paper-trading research system, JavaFX poker over sockets…</span>
+              </span>
+              <span class="studio-work-stack">Various</span>
+            </span>
+            <div class="studio-work-foot">
+              <a class="studio-link" href="https://github.com/kiraguriz">See everything on GitHub ↗</a>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section class="studio-postscript" aria-labelledby="post-heading">
+        <span class="studio-chip-dim">05 / Postscript</span>
+        <p id="post-heading" class="studio-display studio-post-line">
+          If you read this far, that already tells me something. Drop me a line &mdash; I'd rather have a coffee than a coffee chat.
+        </p>
+        <div class="studio-post-actions">
+          <a class="studio-btn studio-btn-accent" href="mailto:haitiandzhu@gmail.com">haitiandzhu@gmail.com</a>
+          <a class="studio-btn studio-btn-outline" href="https://github.com/kiraguriz">GitHub ↗</a>
+          <a class="studio-btn studio-btn-outline" href="https://linkedin.com/in/haitian-daniel-zhu">LinkedIn ↗</a>
+        </div>
+        <p class="studio-signoff">&mdash; Haitian</p>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        <span>Haitian Zhu</span>
-        <span>Naperville, IL - Chicago, IL</span>
-      </div>
+    <footer class="studio-footer">
+      <span>© 2026 Haitian Zhu</span>
+      <span>Built &amp; designed by hand</span>
+      <span>Naperville → Chicago, IL</span>
     </footer>
   </body>
 </html>
