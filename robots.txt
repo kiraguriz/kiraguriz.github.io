@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kiraguriz.github.io/sitemap.xml
+

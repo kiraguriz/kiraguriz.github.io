@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>vBird - Haitian Zhu</title>
+    <meta name="description" content="Case study for the vBird bird identification training app.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="../index.html">Haitian Zhu</a>
+        <div class="nav-links">
+          <a href="../index.html#work">Work</a>
+          <a href="../resume.html">Resume</a>
+          <a href="https://github.com/kiraguriz">GitHub</a>
+          <a href="mailto:haitiandzhu@gmail.com">Email</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="section-kicker">Case study</p>
+        <h1>vBird</h1>
+        <p>A bird identification training app for North American birders, with game-like matching, learning schedules, and a data generation pipeline.</p>
+      </section>
+
+      <section class="section case-layout">
+        <aside class="case-image logo-image">
+          <img src="../assets/images/vbird-icon.png" alt="vBird app icon">
+        </aside>
+        <div>
+          <div class="case-section">
+            <h2>Problem</h2>
+            <p>Bird identification improves through repeated comparison. vBird turns species recognition into a swipe-based training loop backed by curated image and species metadata.</p>
+          </div>
+          <div class="case-section">
+            <h2>Technical work</h2>
+            <ul>
+              <li>Expo and TypeScript mobile app with casual and learning modes.</li>
+              <li>Supabase backend using Postgres, Auth, Storage, Edge Functions, migrations, and row-level security.</li>
+              <li>Python data pipeline from eBird, Wikidata, Wikipedia, iNaturalist, and Gemini-assisted extraction.</li>
+              <li>Release gates for external evidence, audit logs, legal pages, store listing, screenshots, and privacy checks.</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h2>What it shows</h2>
+            <p>This project shows how I think about AI and data as a system: generation, validation, auditability, storage, and product release all have to line up.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

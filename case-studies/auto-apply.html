@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Auto-Apply - Haitian Zhu</title>
+    <meta name="description" content="Case study for Haitian Zhu's review-first AI job workflow.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="../index.html">Haitian Zhu</a>
+        <div class="nav-links">
+          <a href="../index.html#work">Work</a>
+          <a href="../resume.html">Resume</a>
+          <a href="https://github.com/kiraguriz">GitHub</a>
+          <a href="mailto:haitiandzhu@gmail.com">Email</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="section-kicker">Case study</p>
+        <h1>Auto-Apply / AI Job Agent</h1>
+        <p>A local-first workflow for job discovery, application preparation, browser traces, and review-first automation.</p>
+      </section>
+
+      <section class="section case-layout">
+        <aside>
+          <div class="code-panel">
+            <span>discover.jobs()</span>
+            <span>rank.fit(profile)</span>
+            <span>draft.cover_letter()</span>
+            <span>run.browser_trace()</span>
+            <span>stop_before_submit()</span>
+          </div>
+        </aside>
+        <div>
+          <div class="case-section">
+            <h2>Problem</h2>
+            <p>Job application workflows are repetitive, but fully automated submission is risky. The useful product boundary is preparation, evidence, and review, not blind submission.</p>
+          </div>
+          <div class="case-section">
+            <h2>Technical work</h2>
+            <ul>
+              <li>Python local backend for ATS automation, screenshots, traces, profile mapping, Q&amp;A, cover letters, and APIs.</li>
+              <li>Expo React Native shell for profile UX, job discovery, run control, review, and audit surfaces.</li>
+              <li>Provider abstractions for deterministic mocks and local OpenAI-compatible LLM endpoints.</li>
+              <li>Explicit pauses for CAPTCHA, MFA, verification, bot checks, paywalls, and final submit.</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h2>What it shows</h2>
+            <p>This project shows how I build AI tools with operational boundaries: useful automation, traceability, and human approval where the risk is real.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

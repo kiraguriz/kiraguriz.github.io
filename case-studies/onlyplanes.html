@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OnlyPlanes - Haitian Zhu</title>
+    <meta name="description" content="Case study for the OnlyPlanes aviation mobile app.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="../index.html">Haitian Zhu</a>
+        <div class="nav-links">
+          <a href="../index.html#work">Work</a>
+          <a href="../resume.html">Resume</a>
+          <a href="https://github.com/kiraguriz">GitHub</a>
+          <a href="mailto:haitiandzhu@gmail.com">Email</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="section-kicker">Case study</p>
+        <h1>OnlyPlanes</h1>
+        <p>Aviation mobile product for real-time flight tracking, plane spotting workflows, and community features.</p>
+      </section>
+
+      <section class="section case-layout">
+        <aside class="case-image">
+          <img src="../assets/images/onlyplanes-747.png" alt="Aircraft at sunset from OnlyPlanes assets">
+        </aside>
+        <div>
+          <div class="case-section">
+            <h2>Problem</h2>
+            <p>Plane spotting needs a mobile-first workflow that joins live aircraft positions, searchable flight details, spotting places, and lightweight community context.</p>
+          </div>
+          <div class="case-section">
+            <h2>Technical work</h2>
+            <ul>
+              <li>React Native and Expo app with map-first interaction patterns for live aircraft tracking.</li>
+              <li>Fastify and TypeScript backend with OpenSky integration, in-memory flight cache, and shared API contracts.</li>
+              <li>Mobile route, marker, fallback, and tracker state work that needed careful UX and performance handling.</li>
+              <li>Release-hardening work around health endpoints, production config, route trust, analytics, and runtime review.</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h2>What it shows</h2>
+            <p>OnlyPlanes is the best example of product engineering under real constraints: live data, maps, mobile interaction details, backend contracts, tests, and operational readiness.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
