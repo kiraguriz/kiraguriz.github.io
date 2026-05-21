@@ -340,6 +340,7 @@ body.studio {
   width: min(1280px, calc(100% - 32px));
   margin: 0 auto;
   padding: clamp(32px, 5vw, 56px) 0;
+  scroll-margin-top: 96px;
 }
 
 .studio-row {
@@ -374,6 +375,7 @@ body.studio {
   width: min(1280px, calc(100% - 32px));
   margin: 0 auto;
   padding: clamp(32px, 5vw, 56px) 0 24px;
+  scroll-margin-top: 96px;
 }
 
 .studio-now-row {
@@ -553,6 +555,7 @@ body.studio {
   width: min(1280px, calc(100% - 32px));
   margin: 0 auto;
   padding: clamp(32px, 5vw, 56px) 0 24px;
+  scroll-margin-top: 96px;
 }
 
 .studio-work-card {
@@ -765,6 +768,12 @@ body.studio {
 }
 
 @media (max-width: 980px) {
+  .studio-about,
+  .studio-now-section,
+  .studio-work {
+    scroll-margin-top: 180px;
+  }
+
   .studio-header-inner {
     flex-wrap: wrap;
   }
