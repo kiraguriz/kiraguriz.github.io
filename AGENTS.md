@@ -4,14 +4,15 @@ Project rules for any AI agent working in this repository. Read this file first.
 
 ## What this repo is
 
-Static personal portfolio published as a GitHub user site at `kiraguriz.github.io`. Six HTML pages, one CSS file, one image folder. No JavaScript, no build step, no package manager, no framework.
+Static personal portfolio published as a GitHub user site at `kiraguriz.github.io`. Hand-written HTML and one CSS file. No build step, no package manager, no framework. A small amount of inline vanilla JS is allowed for progressive enhancement only (see below).
 
-Entry points:
-- `index.html` - homepage with hero, signal grid, project grid
-- `resume.html` - public resume (phone number intentionally omitted)
-- `case-studies/*.html` - one page per project
-- `assets/css/styles.css` - the only stylesheet
+Pages:
+- `index.html` - single-page homepage: hero, About, Now, Selected work, Resume, Postscript. The resume lives here as the `#resume` section
+- `case-studies/*.html` - one page per project: `workout-movement-tracker`, `onlyplanes`, `vbird`, `poker`, `chicago-traffic`
+- `resume.html` - thin redirect to `index.html#resume` (kept for old inbound links; `noindex`, not in the sitemap)
 - `404.html`, `sitemap.xml`, `robots.txt`, `.nojekyll`
+- `assets/css/styles.css` - the only stylesheet
+- `assets/images/` - WebP/PNG assets; `assets/haitian-zhu-resume.pdf` - downloadable resume
 
 ## Hard rules
 
@@ -19,39 +20,43 @@ Do not do any of the following without explicit approval from the owner:
 
 - Do not introduce a build toolchain (npm, Vite, Webpack, Tailwind, Jekyll, etc.)
 - Do not add analytics, tracking pixels, or third-party scripts of any kind
+- Inline JS is for progressive enhancement only (e.g. the nav pill in `index.html`, the case-study subnav centering). The page must work with JS disabled. Do not add JS dependencies, bundlers, or framework runtimes
 - Do not commit a real phone number anywhere on the site
 - Do not modify `.nojekyll` (it is required to bypass Jekyll on GitHub Pages)
-- Do not commit images that are not referenced by any HTML file
+- Do not commit images that are not referenced by any HTML or CSS file
+- Do not commit dev artifacts, design scratch pages, or mockups to the published tree (they get deployed and crawled). Keep them out of the repo
 - Do not auto-commit or push. The owner controls publishing
 
 ## House style
 
-- Color tokens live at the top of `assets/css/styles.css`. Reuse `--ink`, `--muted`, `--paper`, `--surface`, `--line`, `--sage`, `--rust` before defining new ones
-- Typography is Inter plus system fallback. Headings use `clamp()` for fluid sizing
-- Voice: first-person, concrete, technical. No marketing language. Match the tone of the hero copy in `index.html`
-- Class naming is kebab-case, semantic, no utility classes
+- Color tokens live in `:root` at the top of `assets/css/styles.css`. The active design system is the `--studio-*` set (`--studio-paper`, `--studio-ink`, `--studio-muted`, `--studio-line`, `--studio-surface`, `--studio-accent` violet `#4f3dcf`, etc.). Reuse these before defining new ones. An older non-studio token set (`--ink`, `--muted`, `--paper`, `--surface`, `--line`, `--sage`, `--rust`, `--blue`, `--gold`) is still used by `404.html`; leave it unless you are touching that page
+- Typography: display and body are Charter (serif, system fallback Georgia/Palatino); labels and code use JetBrains Mono (loaded from Google Fonts). Fluid sizing via `clamp()`. Do not introduce Inter as a content font — the `:root` Inter declaration is only a base fallback that studio components override
+- Voice: first-person, concrete, technical. No marketing language. Claims should match shown evidence — do not name projects in About/Now that have no case study or visible artifact. Match the tone of the hero copy in `index.html`
+- Class naming is kebab-case, semantic, no utility classes. Site-wide chrome uses the `studio-` prefix; case-study pages use the `case-` prefix
 - Indent: two spaces, HTML and CSS
 
 ## Adding a new case study
 
 1. Copy an existing file in `case-studies/` as a template (e.g. `vbird.html`)
-2. Update `<title>`, `<meta name="description">`, and the OG meta block
-3. Header nav must match the canonical nav (Work, Resume, GitHub, LinkedIn, Email)
-4. Add the project card to the `.project-grid` in `index.html`
-5. Append the new URL to `sitemap.xml` with a `<lastmod>` date
-6. Optimize any new image (see Image rules) before committing
-7. Verify in a browser at 360px, 760px, and 1280px widths
+2. Update `<title>`, `<meta name="description">`, and the OG/Twitter meta block, plus `<link rel="canonical">`
+3. Header nav must match the canonical nav: About, Now, Work, Resume (pointing at `../index.html#...`), plus GitHub, LinkedIn, and the "Open to opportunity" email pill
+4. Update the case-study subnav pills in every sibling case-study page so the set stays in sync, and set `aria-current="page"` on the new page
+5. Add the project row to `.studio-work-list` in `index.html`
+6. Append the new URL to `sitemap.xml`
+7. Optimize any new image (see Image rules) before committing
+8. Verify in a browser at 360px, 760px, and 1280px widths
 
 ## Accessibility checklist
 
 Run through this every time HTML changes:
 
-- Every `<img>` has a descriptive `alt` attribute
+- Every `<img>` has a descriptive `alt` attribute (decorative-only images get `alt=""`, never omit)
 - Every `<section>` that needs a label uses `aria-labelledby` pointing to a real heading id
 - Heading order is sequential (no skipping h1 to h3)
 - Skip-link at the top of `<body>` still works
 - Keyboard tab order is logical, focus styles are visible
-- Color contrast meets WCAG AA (`--muted` is only used on `--surface` or `--paper`, not on dark backgrounds)
+- Color contrast meets WCAG AA (`--studio-muted` is only used on `--studio-paper`/`--studio-surface`, not on dark backgrounds)
+- The page is usable with JavaScript disabled
 
 ## Image rules
 
@@ -60,10 +65,11 @@ Run through this every time HTML changes:
 - Every `<img>` tag must include explicit `width` and `height` attributes to prevent layout shift
 - Add `loading="lazy"` to images below the fold (anything past the hero)
 - Provide a meaningful `alt`. Decorative-only images get `alt=""`, never omit the attribute
+- OG images (`og:image`) must be PNG or JPG, referenced by absolute URL
 
 ## SEO and metadata
 
-Every page must have:
+Every indexable page must have:
 
 - `<title>` ending in `- Haitian Zhu`
 - `<meta name="description">` under 160 characters
@@ -72,7 +78,7 @@ Every page must have:
 - `<link rel="canonical">` to the absolute URL
 - Favicon link
 
-If a page is added or removed, update `sitemap.xml` in the same commit.
+If a page is added or removed, update `sitemap.xml` in the same commit. Redirect/`noindex` pages (like `resume.html`) must stay out of the sitemap.
 
 ## Verification before declaring done
 
@@ -94,8 +100,9 @@ If you notice any of these while doing other work, mention them to the owner, do
 - Dead CSS tokens or rules
 - Orphan image files
 - Inconsistent navigation between pages
-- Outdated dates in resume or case studies
+- Outdated dates in the resume, the "Now" section, or case studies
 - Broken external links
+- Mismatched cache-bust query strings on `styles.css` between pages
 
 ## Local preview
 

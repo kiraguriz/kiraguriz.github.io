@@ -4,53 +4,265 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OnlyPlanes - Haitian Zhu</title>
-    <meta name="description" content="Case study for the OnlyPlanes aviation mobile app.">
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <meta name="description" content="Case study for the OnlyPlanes aviation mobile app, Fastify backend, and live flight workflow.">
+    <meta property="og:title" content="OnlyPlanes - Haitian Zhu">
+    <meta property="og:description" content="React Native aviation app with a Fastify backend for live flight tracking and spotting workflows.">
+    <meta property="og:image" content="https://kiraguriz.github.io/assets/images/onlyplanes-hero.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kiraguriz.github.io/case-studies/onlyplanes.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://kiraguriz.github.io/case-studies/onlyplanes.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%234f3dcf'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20fill='white'%20font-family='Inter,system-ui,sans-serif'%20font-weight='700'%20font-size='18'%3EH%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap"></noscript>
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260606b">
   </head>
-  <body>
-    <header class="site-header">
-      <nav class="nav" aria-label="Primary">
-        <a class="brand" href="../index.html">Haitian Zhu</a>
-        <div class="nav-links">
-          <a href="../index.html#work">Work</a>
-          <a href="../resume.html">Resume</a>
-          <a href="https://github.com/kiraguriz">GitHub</a>
-          <a href="mailto:haitiandzhu@gmail.com">Email</a>
+  <body class="studio">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="studio-header">
+      <div class="studio-header-inner">
+        <a class="studio-brand" href="../index.html">
+          <span class="studio-brand-mark" aria-hidden="true">H</span>
+          <span class="studio-brand-text">
+            <span class="studio-brand-name">Haitian Zhu</span>
+            <span class="studio-brand-meta">Work / OnlyPlanes</span>
+          </span>
+        </a>
+        <div class="studio-nav-cluster">
+          <nav class="studio-nav" aria-label="Primary">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#now">Now</a>
+            <a class="is-active" href="../index.html#work" aria-current="page">Work</a>
+            <a href="../index.html#resume">Resume</a>
+          </nav>
+          <div class="studio-external-links" role="group" aria-label="External profiles">
+            <a href="https://github.com/kiraguriz"><span class="studio-external-dot" aria-hidden="true"></span>GitHub</a>
+            <a href="https://linkedin.com/in/haitian-daniel-zhu"><span class="studio-external-dot" aria-hidden="true"></span>LinkedIn</a>
+          </div>
         </div>
-      </nav>
+        <a class="studio-cta-pill" href="mailto:haitiandzhu@gmail.com">
+          <span class="studio-cta-dot" aria-hidden="true"></span>
+          Open to opportunity
+        </a>
+      </div>
     </header>
 
-    <main>
-      <section class="page-hero">
-        <p class="section-kicker">Case study</p>
-        <h1>OnlyPlanes</h1>
-        <p>Aviation mobile product for real-time flight tracking, plane spotting workflows, and community features.</p>
+    <main id="main" class="case-study-page">
+      <nav class="case-subnav" aria-label="Case studies">
+        <div class="case-subnav-pills">
+            <a href="workout-movement-tracker.html"><span class="case-subnav-num" aria-hidden="true">01</span>Workout</a>
+            <a href="onlyplanes.html" aria-current="page"><span class="case-subnav-num" aria-hidden="true">02</span>OnlyPlanes</a>
+            <a href="vbird.html"><span class="case-subnav-num" aria-hidden="true">03</span>vBird</a>
+            <a href="poker.html"><span class="case-subnav-num" aria-hidden="true">04</span>Poker</a>
+            <a href="chicago-traffic.html"><span class="case-subnav-num" aria-hidden="true">05</span>Traffic</a>
+        </div>
+      </nav>
+
+      <section class="case-hero" aria-labelledby="case-title">
+        <div class="case-hero-card">
+          <div>
+            <span class="studio-chip">★ Case 02 of 05 · 2026</span>
+            <h1 id="case-title" class="studio-display case-title case-title-fit">
+              OnlyPlanes
+              <em class="case-title-rule">—</em>
+              an aviation<br>
+              <em>companion.</em>
+            </h1>
+            <p class="case-lede">A mobile-first product for real-time flight tracking, plane spotting workflows, and the backend contracts that make live aviation data usable on a phone.</p>
+            <div class="case-actions">
+              <a class="studio-btn studio-btn-accent" href="../index.html#work">Back to work <span aria-hidden="true">→</span></a>
+              <a class="studio-btn studio-btn-outline" href="mailto:haitiandzhu@gmail.com">Ask about the build</a>
+            </div>
+          </div>
+
+          <aside class="case-stats" aria-label="OnlyPlanes project facts">
+            <div class="case-stats-bar">
+              <span class="case-window-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span>case_id: onlyplanes</span>
+              <span class="case-status">● active</span>
+            </div>
+            <table>
+              <tbody>
+                <tr><td>Role</td><td>Mobile + backend</td></tr>
+                <tr><td>Stack</td><td>RN/Expo · Fastify · TS monorepo</td></tr>
+                <tr><td>Data</td><td>OpenSky Network</td></tr>
+                <tr><td>Surface</td><td>iOS · Android · REST API</td></tr>
+                <tr><td>Focus</td><td>Release hardening</td></tr>
+              </tbody>
+            </table>
+          </aside>
+        </div>
       </section>
 
-      <section class="section case-layout">
-        <aside class="case-image">
-          <img src="../assets/images/onlyplanes-747.png" alt="Aircraft at sunset from OnlyPlanes assets">
-        </aside>
-        <div>
-          <div class="case-section">
-            <h2>Problem</h2>
+      <section class="case-row" aria-labelledby="problem-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">01 / Problem</span>
+            <h2 id="problem-heading" class="studio-display case-section-title">Plane spotting needs more than a map.</h2>
+          </div>
+          <div class="case-prose">
             <p>Plane spotting needs a mobile-first workflow that joins live aircraft positions, searchable flight details, spotting places, and lightweight community context.</p>
-          </div>
-          <div class="case-section">
-            <h2>Technical work</h2>
-            <ul>
-              <li>React Native and Expo app with map-first interaction patterns for live aircraft tracking.</li>
-              <li>Fastify and TypeScript backend with OpenSky integration, in-memory flight cache, and shared API contracts.</li>
-              <li>Mobile route, marker, fallback, and tracker state work that needed careful UX and performance handling.</li>
-              <li>Release-hardening work around health endpoints, production config, route trust, analytics, and runtime review.</li>
-            </ul>
-          </div>
-          <div class="case-section">
-            <h2>What it shows</h2>
-            <p>OnlyPlanes is the best example of product engineering under real constraints: live data, maps, mobile interaction details, backend contracts, tests, and operational readiness.</p>
+            <p>The hard part is not drawing a marker. The hard part is making changing aircraft data feel trustworthy enough for someone standing outside with a phone.</p>
           </div>
         </div>
       </section>
+
+      <section class="case-row" aria-labelledby="approach-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">02 / Approach</span>
+            <h2 id="approach-heading" class="studio-display case-section-title">Three rules I held to.</h2>
+          </div>
+          <div class="case-pillars">
+            <div class="case-pillar">
+              <span class="case-pillar-num">①</span>
+              <strong>Map first</strong>
+              <p>The tracker starts from aircraft context, with lists and details supporting the map instead of replacing it.</p>
+            </div>
+            <div class="case-pillar">
+              <span class="case-pillar-num">②</span>
+              <strong>Thin backend</strong>
+              <p>A Fastify service polls OpenSky into an in-memory cache (SQLite + WAL behind it) so the phone never talks to the raw stream.</p>
+            </div>
+            <div class="case-pillar">
+              <span class="case-pillar-num">③</span>
+              <strong>Trust the state</strong>
+              <p>Routes, markers, fallbacks, and refresh behavior are treated as product details, not plumbing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-system" aria-labelledby="system-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">03 / System</span>
+            <h2 id="system-heading" class="studio-display case-section-title">How the parts talk.</h2>
+            <p class="case-system-copy">The app leans on a small API layer instead of binding the phone directly to a public aviation stream.</p>
+          </div>
+          <div class="case-system-stack">
+            <div class="case-diagram" role="img" aria-label="OnlyPlanes system diagram">
+              <div class="case-node"><strong>Mobile client</strong><span>React Native · Expo</span><small>iOS · Android</small></div>
+              <div class="case-flow">https →</div>
+              <div class="case-node"><strong>OnlyPlanes API</strong><span>Fastify · TypeScript</span><small>WAL · cache · poll</small></div>
+              <div class="case-flow">fetch →</div>
+              <div class="case-node"><strong>OpenSky</strong><span>public flight stream</span><small>source data</small></div>
+            </div>
+            <div class="case-code-panel">
+              <div class="case-code-head"><span>contract shape</span><span>flight snapshot</span></div>
+              <pre><code>type FlightSnapshot = {
+  callsign: string;
+  position: { lat: number; lon: number; altitude?: number };
+  velocity?: { heading?: number; speed?: number };
+  source: "opensky";
+  cachedAt: string;
+};</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="built-heading">
+        <article class="case-built-card">
+          <div class="case-built-head">
+            <span class="studio-chip-dark">04 / What I built</span>
+            <span class="case-built-note">mobile · api · release review</span>
+          </div>
+          <h2 id="built-heading" class="studio-display case-built-title">The actual <em>work.</em></h2>
+          <dl class="case-built-list">
+            <div><dt>Monorepo</dt><dd>A TypeScript monorepo spanning a React Native/Expo client, a Fastify backend, and a shared type package so contracts stay in sync.</dd></div>
+            <div><dt>Backend</dt><dd>Fastify + SQLite (WAL) polling OpenSky into an in-memory cache, serving REST endpoints for bounding-box queries, flight detail, and callsign/ICAO24 search.</dd></div>
+            <div><dt>Map</dt><dd>An interactive live map (MapKit on iOS, Google Maps on Android) with directional markers and smooth interpolation between ~5s updates.</dd></div>
+            <div><dt>Release</dt><dd>Health endpoint, production config, fallback states, and GitHub Actions CI/CD running lint, typecheck, build, and Jest on every push.</dd></div>
+          </dl>
+          <div class="case-receipts">
+            <span class="case-receipts-label">Receipts · shipped surfaces</span>
+            <div class="case-receipt-list">
+              <div class="case-receipt-row"><span>tracker</span><span>map-led aircraft tracking with directional markers and route states</span></div>
+              <div class="case-receipt-row"><span>api</span><span>/health, bounding-box flights, flight detail, and callsign/ICAO24 search</span></div>
+              <div class="case-receipt-row"><span>fallbacks</span><span>handling missing live data without making the UI feel broken</span></div>
+              <div class="case-receipt-row"><span>ci/cd</span><span>GitHub Actions lint, typecheck, build, and Jest gates on every push</span></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="case-showcase" aria-label="OnlyPlanes detail">
+        <figure class="case-showcase-visual case-terminal-visual">
+          <div class="case-code-panel">
+            <div class="case-code-head"><span>live tracker</span><span>bounding-box snapshot</span></div>
+            <pre><code>GET /flights?bbox=41.7,-87.9,42.1,-87.5
+
+DAL482  → 36000ft  hdg 271  cachedAt 4s ago
+UAL219  → 28500ft  hdg 094  cachedAt 3s ago
+SWA1140 → climbing  hdg 178  cachedAt 5s ago
+
+stream: opensky · cache: warm · markers: live</code></pre>
+          </div>
+        </figure>
+        <div class="case-memo">
+          <span class="case-memo-label">Detail</span>
+          <p>Live aircraft positions are a <em>product surface,</em> not decoration.</p>
+          <span class="case-memo-foot">Aviation data · phone workflow</span>
+        </div>
+      </section>
+
+      <section class="case-numbers" aria-labelledby="numbers-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">05 / Numbers</span>
+            <h2 id="numbers-heading" class="studio-display case-section-title">Evidence without fake metrics.</h2>
+          </div>
+          <table class="case-metrics-table">
+            <thead>
+              <tr><th>Dimension</th><th>Value</th><th>Why it matters</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Client</td><td>iOS · Android</td><td>One React Native/Expo workflow across platforms</td></tr>
+              <tr><td>Backend</td><td>Fastify + SQLite</td><td>OpenSky stays behind a controlled REST contract</td></tr>
+              <tr><td>API surface</td><td>4 endpoints</td><td>Health, bounding-box, detail, and search</td></tr>
+              <tr><td>CI/CD</td><td>GitHub Actions</td><td>Lint, typecheck, build, and Jest on every push</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="case-outcome" aria-labelledby="outcome-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">06 / What it shows</span>
+            <h2 id="outcome-heading" class="studio-display case-section-title">Product engineering under real constraints.</h2>
+          </div>
+          <p class="case-prose">OnlyPlanes is the clearest example of my mobile product work under live-data constraints: maps, backend contracts, runtime states, release readiness, and the small UX decisions that keep a tracker usable.</p>
+        </div>
+      </section>
+
+      <section class="case-next-section" aria-label="Next case study">
+        <a class="case-next-card" href="vbird.html">
+          <span>
+            <span class="case-next-label">Up next · Case 03 / 05</span>
+            <span class="case-next-title">vBird — a bird-ID trainer built on Supabase.</span>
+          </span>
+          <span class="case-next-button">Read case <span aria-hidden="true">→</span></span>
+        </a>
+      </section>
     </main>
+
+    <footer class="studio-footer">
+      <span>© 2026 Haitian Zhu</span>
+      <span>Naperville → Chicago, IL</span>
+    </footer>
+    <script>
+      (() => {
+        const bar = document.querySelector(".case-subnav-pills");
+        if (!bar) return;
+        const active = bar.querySelector('[aria-current="page"]');
+        if (!active) return;
+        const target = active.offsetLeft - (bar.clientWidth - active.offsetWidth) / 2;
+        bar.scrollLeft = Math.max(0, target);
+      })();
+    </script>
   </body>
 </html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Networked 3-Card Poker - Haitian Zhu</title>
+    <meta name="description" content="Case study for a multi-threaded JavaFX Three Card Poker game played over TCP sockets, with serialized game state and JUnit-tested hand logic.">
+    <meta property="og:title" content="Networked 3-Card Poker - Haitian Zhu">
+    <meta property="og:description" content="A client-server JavaFX card game: multi-threaded socket server, serialized state, and JUnit-tested Three Card Poker logic.">
+    <meta property="og:image" content="https://kiraguriz.github.io/assets/images/onlyplanes-hero.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kiraguriz.github.io/case-studies/poker.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://kiraguriz.github.io/case-studies/poker.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%234f3dcf'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20fill='white'%20font-family='Inter,system-ui,sans-serif'%20font-weight='700'%20font-size='18'%3EH%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap"></noscript>
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260606b">
+  </head>
+  <body class="studio">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="studio-header">
+      <div class="studio-header-inner">
+        <a class="studio-brand" href="../index.html">
+          <span class="studio-brand-mark" aria-hidden="true">H</span>
+          <span class="studio-brand-text">
+            <span class="studio-brand-name">Haitian Zhu</span>
+            <span class="studio-brand-meta">Work / 3-Card Poker</span>
+          </span>
+        </a>
+        <div class="studio-nav-cluster">
+          <nav class="studio-nav" aria-label="Primary">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#now">Now</a>
+            <a class="is-active" href="../index.html#work" aria-current="page">Work</a>
+            <a href="../index.html#resume">Resume</a>
+          </nav>
+          <div class="studio-external-links" role="group" aria-label="External profiles">
+            <a href="https://github.com/kiraguriz"><span class="studio-external-dot" aria-hidden="true"></span>GitHub</a>
+            <a href="https://linkedin.com/in/haitian-daniel-zhu"><span class="studio-external-dot" aria-hidden="true"></span>LinkedIn</a>
+          </div>
+        </div>
+        <a class="studio-cta-pill" href="mailto:haitiandzhu@gmail.com">
+          <span class="studio-cta-dot" aria-hidden="true"></span>
+          Open to opportunity
+        </a>
+      </div>
+    </header>
+
+    <main id="main" class="case-study-page">
+      <nav class="case-subnav" aria-label="Case studies">
+        <div class="case-subnav-pills">
+            <a href="workout-movement-tracker.html"><span class="case-subnav-num" aria-hidden="true">01</span>Workout</a>
+            <a href="onlyplanes.html"><span class="case-subnav-num" aria-hidden="true">02</span>OnlyPlanes</a>
+            <a href="vbird.html"><span class="case-subnav-num" aria-hidden="true">03</span>vBird</a>
+            <a href="poker.html" aria-current="page"><span class="case-subnav-num" aria-hidden="true">04</span>Poker</a>
+            <a href="chicago-traffic.html"><span class="case-subnav-num" aria-hidden="true">05</span>Traffic</a>
+        </div>
+      </nav>
+
+      <section class="case-hero" aria-labelledby="case-title">
+        <div class="case-hero-card">
+          <div>
+            <span class="studio-chip">★ Case 04 of 05 · 2025</span>
+            <h1 id="case-title" class="studio-display case-title case-title-fit">
+              3-Card Poker
+              <em class="case-title-rule">—</em>
+              played over<br>
+              <em>the network.</em>
+            </h1>
+            <p class="case-lede">A desktop Three Card Poker game where up to eight JavaFX clients connect to one multi-threaded server over TCP sockets, with serialized game state and hand logic verified by JUnit.</p>
+            <div class="case-actions">
+              <a class="studio-btn studio-btn-accent" href="../index.html#work">Back to work <span aria-hidden="true">→</span></a>
+              <a class="studio-btn studio-btn-outline" href="mailto:haitiandzhu@gmail.com">Ask about the build</a>
+            </div>
+          </div>
+
+          <aside class="case-stats" aria-label="3-Card Poker project facts">
+            <div class="case-stats-bar">
+              <span class="case-window-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span>case_id: poker</span>
+              <span class="case-status">● shipped</span>
+            </div>
+            <table>
+              <tbody>
+                <tr><td>Role</td><td>Client + server</td></tr>
+                <tr><td>Stack</td><td>Java · JavaFX</td></tr>
+                <tr><td>Network</td><td>TCP sockets · serialization</td></tr>
+                <tr><td>Surface</td><td>Desktop · up to 8 clients</td></tr>
+                <tr><td>Focus</td><td>Concurrency + game logic</td></tr>
+              </tbody>
+            </table>
+          </aside>
+        </div>
+      </section>
+
+      <section class="case-row" aria-labelledby="problem-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">01 / Problem</span>
+            <h2 id="problem-heading" class="studio-display case-section-title">A card game is really a state machine.</h2>
+          </div>
+          <div class="case-prose">
+            <p>Three Card Poker is simple to play and surprisingly fussy to build correctly: ante and play bets, an optional Pair Plus side bet, a dealer who only qualifies on Queen-high, and payouts that depend on exact hand ranking.</p>
+            <p>Putting it on a network adds the real difficulty &mdash; many players, one authoritative deck, and a server that has to keep every connection's state straight without letting one slow client stall the rest.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-row" aria-labelledby="approach-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">02 / Approach</span>
+            <h2 id="approach-heading" class="studio-display case-section-title">Three rules I held to.</h2>
+          </div>
+          <div class="case-pillars">
+            <div class="case-pillar">
+              <span class="case-pillar-num">①</span>
+              <strong>Server owns the truth</strong>
+              <p>The deck, deal, and outcome live on the server. Clients render state and send intent; they never decide who won.</p>
+            </div>
+            <div class="case-pillar">
+              <span class="case-pillar-num">②</span>
+              <strong>One thread per player</strong>
+              <p>Each client runs on its own handler thread off a shared, synchronized list so a slow connection can't block the table.</p>
+            </div>
+            <div class="case-pillar">
+              <span class="case-pillar-num">③</span>
+              <strong>Logic apart from UI</strong>
+              <p>Hand evaluation is pure, static, and unit-tested &mdash; kept out of the FXML controllers so the rules can be proven, not eyeballed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-system" aria-labelledby="system-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">03 / System</span>
+            <h2 id="system-heading" class="studio-display case-section-title">How the parts talk.</h2>
+            <p class="case-system-copy">Clients and server pass serialized game objects across a socket; the server fans each connection onto its own thread.</p>
+          </div>
+          <div class="case-system-stack">
+            <div class="case-diagram" role="img" aria-label="3-Card Poker system diagram">
+              <div class="case-node"><strong>JavaFX clients</strong><span>FXML · MVC</span><small>up to 8</small></div>
+              <div class="case-flow">socket ↔</div>
+              <div class="case-node"><strong>Server thread</strong><span>ServerSocket · handlers</span><small>one per client</small></div>
+              <div class="case-flow">calls →</div>
+              <div class="case-node"><strong>ThreeCardLogic</strong><span>pure rules</span><small>JUnit-tested</small></div>
+            </div>
+            <div class="case-code-panel">
+              <div class="case-code-head"><span>game logic</span><span>Pair Plus payout</span></div>
+              <pre><code>// Pair Plus pays on hand rank, regardless of the dealer
+switch (evalHand(hand)) {
+  case STRAIGHT_FLUSH: return bet * 40; // 40:1
+  case THREE_OF_KIND:  return bet * 30; // 30:1
+  case STRAIGHT:       return bet * 6;  // 6:1
+  case FLUSH:          return bet * 3;  // 3:1
+  case PAIR:           return bet * 1;  // 1:1
+  default:             return 0;        // lose
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="built-heading">
+        <article class="case-built-card">
+          <div class="case-built-head">
+            <span class="studio-chip-dark">04 / What I built</span>
+            <span class="case-built-note">server · client · game logic · tests</span>
+          </div>
+          <h2 id="built-heading" class="studio-display case-built-title">The actual <em>work.</em></h2>
+          <dl class="case-built-list">
+            <div><dt>Server</dt><dd>A multi-threaded TCP server accepting up to eight clients, each on its own handler thread off a synchronized client list.</dd></div>
+            <div><dt>Transport</dt><dd>Java object serialization over sockets to move deals, bets, and results between server and clients as typed game objects.</dd></div>
+            <div><dt>Logic</dt><dd>Pure hand evaluation &mdash; ranking, dealer qualification, high-card tiebreaks, Pair Plus payouts, and the A-2-3 straight edge case.</dd></div>
+            <div><dt>Client</dt><dd>JavaFX MVC with FXML scenes and custom CSS for the welcome, table, and win/lose flows, kept separate from the rules.</dd></div>
+          </dl>
+          <div class="case-receipts">
+            <span class="case-receipts-label">Receipts · what's in the repo</span>
+            <div class="case-receipt-list">
+              <div class="case-receipt-row"><span>concurrency</span><span>ServerSocket accept loop spawning a daemon thread per client, capped at eight</span></div>
+              <div class="case-receipt-row"><span>hand ranking</span><span>straight flush → three of a kind → straight → flush → pair → high card</span></div>
+              <div class="case-receipt-row"><span>betting</span><span>ante / play comparison plus the independent Pair Plus side bet</span></div>
+              <div class="case-receipt-row"><span>tests</span><span>JUnit suite covering evaluation, qualification, and payout math</span></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="case-numbers" aria-labelledby="numbers-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">05 / Numbers</span>
+            <h2 id="numbers-heading" class="studio-display case-section-title">Evidence without fake metrics.</h2>
+          </div>
+          <table class="case-metrics-table">
+            <thead>
+              <tr><th>Dimension</th><th>Value</th><th>Why it matters</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Concurrency</td><td>Up to 8 clients</td><td>One thread per player, off a synchronized list</td></tr>
+              <tr><td>Transport</td><td>TCP + serialization</td><td>Typed game state moves whole, not hand-parsed</td></tr>
+              <tr><td>Hand ranks</td><td>6 categories</td><td>Exact ranking drives both the showdown and payouts</td></tr>
+              <tr><td>Verification</td><td>JUnit suite</td><td>Rules are proven, not eyeballed in the UI</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="case-outcome" aria-labelledby="outcome-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">06 / What it shows</span>
+            <h2 id="outcome-heading" class="studio-display case-section-title">Concurrency and clean boundaries.</h2>
+          </div>
+          <p class="case-prose">This is my clearest systems-programming project: real socket networking, multi-threaded server state, and a strict split between pure game logic and the JavaFX UI &mdash; the kind of separation that makes a program testable instead of just runnable.</p>
+        </div>
+      </section>
+
+      <section class="case-next-section" aria-label="Next case study">
+        <a class="case-next-card" href="chicago-traffic.html">
+          <span>
+            <span class="case-next-label">Up next · Case 05 / 05</span>
+            <span class="case-next-title">Chicago Traffic Violation Analysis — SQL over a city's cameras.</span>
+          </span>
+          <span class="case-next-button">Read case <span aria-hidden="true">→</span></span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="studio-footer">
+      <span>© 2026 Haitian Zhu</span>
+      <span>Naperville → Chicago, IL</span>
+    </footer>
+    <script>
+      (() => {
+        const bar = document.querySelector(".case-subnav-pills");
+        if (!bar) return;
+        const active = bar.querySelector('[aria-current="page"]');
+        if (!active) return;
+        const target = active.offsetLeft - (bar.clientWidth - active.offsetWidth) / 2;
+        bar.scrollLeft = Math.max(0, target);
+      })();
+    </script>
+  </body>
+</html>

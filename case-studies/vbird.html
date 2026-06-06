@@ -4,53 +4,265 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>vBird - Haitian Zhu</title>
-    <meta name="description" content="Case study for the vBird bird identification training app.">
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <meta name="description" content="Case study for vBird, a bird identification trainer using Expo, Supabase, data pipelines, and Gemini.">
+    <meta property="og:title" content="vBird - Haitian Zhu">
+    <meta property="og:description" content="Expo and Supabase bird-ID trainer with curated species data and release-readiness gates.">
+    <meta property="og:image" content="https://kiraguriz.github.io/assets/images/vbird-icon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kiraguriz.github.io/case-studies/vbird.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://kiraguriz.github.io/case-studies/vbird.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%234f3dcf'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20fill='white'%20font-family='Inter,system-ui,sans-serif'%20font-weight='700'%20font-size='18'%3EH%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap"></noscript>
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260606b">
   </head>
-  <body>
-    <header class="site-header">
-      <nav class="nav" aria-label="Primary">
-        <a class="brand" href="../index.html">Haitian Zhu</a>
-        <div class="nav-links">
-          <a href="../index.html#work">Work</a>
-          <a href="../resume.html">Resume</a>
-          <a href="https://github.com/kiraguriz">GitHub</a>
-          <a href="mailto:haitiandzhu@gmail.com">Email</a>
+  <body class="studio">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="studio-header">
+      <div class="studio-header-inner">
+        <a class="studio-brand" href="../index.html">
+          <span class="studio-brand-mark" aria-hidden="true">H</span>
+          <span class="studio-brand-text">
+            <span class="studio-brand-name">Haitian Zhu</span>
+            <span class="studio-brand-meta">Work / vBird</span>
+          </span>
+        </a>
+        <div class="studio-nav-cluster">
+          <nav class="studio-nav" aria-label="Primary">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#now">Now</a>
+            <a class="is-active" href="../index.html#work" aria-current="page">Work</a>
+            <a href="../index.html#resume">Resume</a>
+          </nav>
+          <div class="studio-external-links" role="group" aria-label="External profiles">
+            <a href="https://github.com/kiraguriz"><span class="studio-external-dot" aria-hidden="true"></span>GitHub</a>
+            <a href="https://linkedin.com/in/haitian-daniel-zhu"><span class="studio-external-dot" aria-hidden="true"></span>LinkedIn</a>
+          </div>
         </div>
-      </nav>
+        <a class="studio-cta-pill" href="mailto:haitiandzhu@gmail.com">
+          <span class="studio-cta-dot" aria-hidden="true"></span>
+          Open to opportunity
+        </a>
+      </div>
     </header>
 
-    <main>
-      <section class="page-hero">
-        <p class="section-kicker">Case study</p>
-        <h1>vBird</h1>
-        <p>A bird identification training app for North American birders, with game-like matching, learning schedules, and a data generation pipeline.</p>
+    <main id="main" class="case-study-page">
+      <nav class="case-subnav" aria-label="Case studies">
+        <div class="case-subnav-pills">
+            <a href="workout-movement-tracker.html"><span class="case-subnav-num" aria-hidden="true">01</span>Workout</a>
+            <a href="onlyplanes.html"><span class="case-subnav-num" aria-hidden="true">02</span>OnlyPlanes</a>
+            <a href="vbird.html" aria-current="page"><span class="case-subnav-num" aria-hidden="true">03</span>vBird</a>
+            <a href="poker.html"><span class="case-subnav-num" aria-hidden="true">04</span>Poker</a>
+            <a href="chicago-traffic.html"><span class="case-subnav-num" aria-hidden="true">05</span>Traffic</a>
+        </div>
+      </nav>
+
+      <section class="case-hero" aria-labelledby="case-title">
+        <div class="case-hero-card">
+          <div>
+            <span class="studio-chip">★ Case 03 of 05 · 2025</span>
+            <h1 id="case-title" class="studio-display case-title case-title-fit">
+              <span class="case-title-lead">vBird<em class="case-title-rule">—</em></span>
+              a bird-ID<br>
+              <em>trainer.</em>
+            </h1>
+            <p class="case-lede">A North American bird-ID app: swipe two photos to decide whether they're the same species. A casual mode for quick reps, a learning mode on FSRS spaced repetition, and a Supabase backend fed by an audit-friendly data pipeline.</p>
+            <div class="case-actions">
+              <a class="studio-btn studio-btn-accent" href="../index.html#work">Back to work <span aria-hidden="true">→</span></a>
+              <a class="studio-btn studio-btn-outline" href="mailto:haitiandzhu@gmail.com">Ask about the build</a>
+            </div>
+          </div>
+
+          <aside class="case-stats" aria-label="vBird project facts">
+            <div class="case-stats-bar">
+              <span class="case-window-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span>case_id: vbird</span>
+              <span class="case-status">● active</span>
+            </div>
+            <table>
+              <tbody>
+                <tr><td>Role</td><td>Product + data system</td></tr>
+                <tr><td>Stack</td><td>Expo SDK 54 · Supabase</td></tr>
+                <tr><td>Matching</td><td>Pre-labeled pairs · no runtime ML</td></tr>
+                <tr><td>Data</td><td>eBird · Wikidata · iNaturalist</td></tr>
+                <tr><td>Focus</td><td>Release evidence gates</td></tr>
+              </tbody>
+            </table>
+          </aside>
+        </div>
       </section>
 
-      <section class="section case-layout">
-        <aside class="case-image logo-image">
-          <img src="../assets/images/vbird-icon.png" alt="vBird app icon">
-        </aside>
-        <div>
-          <div class="case-section">
-            <h2>Problem</h2>
-            <p>Bird identification improves through repeated comparison. vBird turns species recognition into a swipe-based training loop backed by curated image and species metadata.</p>
+      <section class="case-media" aria-label="vBird visual">
+        <figure class="case-media-frame case-logo-visual">
+          <img src="../assets/images/vbird-icon.png" alt="vBird app icon" width="1024" height="1024">
+        </figure>
+        <div class="case-media-caption">
+          <span>Species trainer · learning loop</span>
+          <span>Expo · Supabase · FSRS</span>
+        </div>
+      </section>
+
+      <section class="case-row" aria-labelledby="problem-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">01 / Problem</span>
+            <h2 id="problem-heading" class="studio-display case-section-title">Bird ID is a comparison problem.</h2>
           </div>
-          <div class="case-section">
-            <h2>Technical work</h2>
-            <ul>
-              <li>Expo and TypeScript mobile app with casual and learning modes.</li>
-              <li>Supabase backend using Postgres, Auth, Storage, Edge Functions, migrations, and row-level security.</li>
-              <li>Python data pipeline from eBird, Wikidata, Wikipedia, iNaturalist, and Gemini-assisted extraction.</li>
-              <li>Release gates for external evidence, audit logs, legal pages, store listing, screenshots, and privacy checks.</li>
-            </ul>
-          </div>
-          <div class="case-section">
-            <h2>What it shows</h2>
-            <p>This project shows how I think about AI and data as a system: generation, validation, auditability, storage, and product release all have to line up.</p>
+          <div class="case-prose">
+            <p>Bird identification improves through repeated comparison. vBird turns it into a swipe game &mdash; two photos, same species or not &mdash; with a casual mode for speed and a learning mode that schedules reps with FSRS spaced repetition.</p>
+            <p>Keeping the loop quick is the easy half. The hard half is the data: matching runs on pre-labeled pairs and SQL, not runtime ML, so source quality, image provenance, and species facts all have to line up before a card ever ships.</p>
           </div>
         </div>
       </section>
+
+      <section class="case-row" aria-labelledby="approach-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">02 / Approach</span>
+            <h2 id="approach-heading" class="studio-display case-section-title">Train the eye, audit the data.</h2>
+          </div>
+          <div class="case-pillars">
+            <div class="case-pillar">
+              <span class="case-pillar-num">①</span>
+              <strong>Two loops</strong>
+              <p>A casual mode for quick swipe reps and a learning mode that paces review with an FSRS spaced-repetition schedule.</p>
+            </div>
+            <div class="case-pillar">
+              <span class="case-pillar-num">②</span>
+              <strong>Backend as curriculum</strong>
+              <p>Supabase holds users, learning state, species data, images, and release evidence in one product system with row-level security.</p>
+            </div>
+            <div class="case-pillar">
+              <span class="case-pillar-num">③</span>
+              <strong>AI offline, with receipts</strong>
+              <p>Gemini extracts and shapes content in a build-time pipeline &mdash; never at runtime &mdash; and every fact keeps its source trail.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-system" aria-labelledby="system-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">03 / System</span>
+            <h2 id="system-heading" class="studio-display case-section-title">The learning loop has a data spine.</h2>
+            <p class="case-system-copy">The app reads pre-labeled pairs from Supabase (images served via Cloudflare) while a separate offline pipeline prepares species metadata and audit-friendly assets.</p>
+          </div>
+          <div class="case-system-stack">
+            <div class="case-diagram" role="img" aria-label="vBird system diagram">
+              <div class="case-node"><strong>Expo app</strong><span>casual · learning modes</span><small>SDK 54 · TS strict</small></div>
+              <div class="case-flow">sync →</div>
+              <div class="case-node"><strong>Supabase</strong><span>Postgres · Auth · Storage</span><small>RLS · Cloudflare CDN</small></div>
+              <div class="case-flow">seed →</div>
+              <div class="case-node"><strong>Data pipeline</strong><span>eBird · Wikidata · iNat · Gemini</span><small>offline · source audit</small></div>
+            </div>
+            <div class="case-code-panel">
+              <div class="case-code-head"><span>data shape</span><span>training card</span></div>
+              <pre><code>type SpeciesTrainingCard = {
+  speciesCode: string;
+  commonName: string;
+  images: CuratedImage[];
+  facts: SpeciesFacts;
+  sourceAudit: SourceRecord[];
+};</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="built-heading">
+        <article class="case-built-card">
+          <div class="case-built-head">
+            <span class="studio-chip-dark">04 / What I built</span>
+            <span class="case-built-note">mobile · data · release gates</span>
+          </div>
+          <h2 id="built-heading" class="studio-display case-built-title">The actual <em>work.</em></h2>
+          <dl class="case-built-list">
+            <div><dt>Mobile</dt><dd>Expo SDK 54 (New Architecture) TypeScript-strict app with a casual swipe mode and an FSRS-scheduled learning mode.</dd></div>
+            <div><dt>Backend</dt><dd>Supabase Postgres, Auth, Storage, Edge Functions, migrations, and row-level security, with Cloudflare in front of Storage.</dd></div>
+            <div><dt>Pipeline</dt><dd>An offline Python + uv flow from eBird → Wikidata → Wikipedia → iNaturalist → Supabase, with Gemini-assisted extraction.</dd></div>
+            <div><dt>Release</dt><dd>An evidence manifest with SHA-256 integrity over external proof files, plus legal pages, store listing, screenshots, and privacy checks.</dd></div>
+          </dl>
+          <div class="case-receipts">
+            <span class="case-receipts-label">Receipts · shipped surfaces</span>
+            <div class="case-receipt-list">
+              <div class="case-receipt-row"><span>training modes</span><span>casual swipe reps plus an FSRS spaced-repetition learning loop</span></div>
+              <div class="case-receipt-row"><span>supabase</span><span>Postgres schema, storage, auth, functions, migrations, and RLS</span></div>
+              <div class="case-receipt-row"><span>pipeline</span><span>offline multi-source data prep, no runtime ML inference</span></div>
+              <div class="case-receipt-row"><span>release gate</span><span>SHA-256 evidence manifest, privacy/legal surfaces, and store readiness</span></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="case-showcase" aria-label="vBird detail">
+        <figure class="case-showcase-visual case-logo-visual">
+          <img src="../assets/images/vbird-icon.png" alt="vBird app icon" width="1024" height="1024" loading="lazy">
+        </figure>
+        <div class="case-memo">
+          <span class="case-memo-label">Detail</span>
+          <p>Generated data is useful only when the <em>source trail</em> stays visible.</p>
+          <span class="case-memo-foot">Species data · learning state</span>
+        </div>
+      </section>
+
+      <section class="case-numbers" aria-labelledby="numbers-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">05 / Numbers</span>
+            <h2 id="numbers-heading" class="studio-display case-section-title">What is actually in scope.</h2>
+          </div>
+          <table class="case-metrics-table">
+            <thead>
+              <tr><th>Dimension</th><th>Value</th><th>Why it matters</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Training modes</td><td>Casual · learning</td><td>Quick reps plus an FSRS spaced-repetition loop</td></tr>
+              <tr><td>Matching</td><td>Pre-labeled pairs</td><td>SQL queries, no runtime ML inference</td></tr>
+              <tr><td>Data sources</td><td>5 named sources</td><td>eBird, Wikidata, Wikipedia, iNaturalist, Gemini</td></tr>
+              <tr><td>Release focus</td><td>Evidence gates</td><td>SHA-256 manifest, privacy, legal, and store listing</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="case-outcome" aria-labelledby="outcome-heading">
+        <div class="case-row-grid">
+          <div>
+            <span class="studio-chip-dim">06 / What it shows</span>
+            <h2 id="outcome-heading" class="studio-display case-section-title">AI and data as a system.</h2>
+          </div>
+          <p class="case-prose">vBird shows how I think about AI-assisted product data: generation, validation, auditability, storage, learning UX, and release evidence all have to move together.</p>
+        </div>
+      </section>
+
+      <section class="case-next-section" aria-label="Next case study">
+        <a class="case-next-card" href="poker.html">
+          <span>
+            <span class="case-next-label">Up next · Case 04 / 05</span>
+            <span class="case-next-title">Networked 3-Card Poker — JavaFX over TCP sockets.</span>
+          </span>
+          <span class="case-next-button">Read case <span aria-hidden="true">→</span></span>
+        </a>
+      </section>
     </main>
+
+    <footer class="studio-footer">
+      <span>© 2026 Haitian Zhu</span>
+      <span>Naperville → Chicago, IL</span>
+    </footer>
+    <script>
+      (() => {
+        const bar = document.querySelector(".case-subnav-pills");
+        if (!bar) return;
+        const active = bar.querySelector('[aria-current="page"]');
+        if (!active) return;
+        const target = active.offsetLeft - (bar.clientWidth - active.offsetWidth) / 2;
+        bar.scrollLeft = Math.max(0, target);
+      })();
+    </script>
   </body>
 </html>
