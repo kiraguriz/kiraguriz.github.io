@@ -1,4 +1,4 @@
-# AGENTS.md
+# AGENTS.md / CLAUDE.md
 
 Project rules for any AI agent working in this repository. Read this file first.
 
@@ -30,7 +30,7 @@ Do not do any of the following without explicit approval from the owner:
 ## House style
 
 - Color tokens live in `:root` at the top of `assets/css/styles.css`. The active design system is the `--studio-*` set (`--studio-paper`, `--studio-ink`, `--studio-muted`, `--studio-line`, `--studio-surface`, `--studio-accent` violet `#4f3dcf`, etc.). Reuse these before defining new ones. An older non-studio token set (`--ink`, `--muted`, `--paper`, `--surface`, `--line`, `--sage`, `--rust`, `--blue`, `--gold`) is still used by `404.html`; leave it unless you are touching that page
-- Typography: display and body are Charter (serif, system fallback Georgia/Palatino); labels and code use JetBrains Mono (loaded from Google Fonts). Fluid sizing via `clamp()`. Do not introduce Inter as a content font — the `:root` Inter declaration is only a base fallback that studio components override
+- Typography: display and body are Charter (serif, system fallback Georgia/Palatino); labels and code use JetBrains Mono (self-hosted latin subset in `assets/fonts/`, declared via `@font-face` in `styles.css`; no third-party font CDN). Fluid sizing via `clamp()`. Do not introduce Inter as a content font — the `:root` Inter declaration is only a base fallback that studio components override
 - Voice: first-person, concrete, technical. No marketing language. Claims should match shown evidence — do not name projects in About/Now that have no case study or visible artifact. Match the tone of the hero copy in `index.html`
 - Class naming is kebab-case, semantic, no utility classes. Site-wide chrome uses the `studio-` prefix; case-study pages use the `case-` prefix
 - Indent: two spaces, HTML and CSS

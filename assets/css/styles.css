@@ -1,3 +1,21 @@
+/* Self-hosted JetBrains Mono (latin subset, weights 400/500) — replaces the
+   Google Fonts CDN request so the site makes no third-party calls. */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/jetbrains-mono-latin-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/jetbrains-mono-latin-500.woff2") format("woff2");
+}
+
 :root {
   --ink: #18211f;
   --muted: #63716d;
@@ -1995,8 +2013,9 @@ body.studio {
   .studio-nav-cluster {
     order: 3;
     width: 100%;
-    overflow-x: auto;
-    padding-bottom: 2px;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 12px;
   }
 
   .studio-hero-card,
@@ -2687,5 +2706,22 @@ img {
     width: min(358px, calc(100% - 32px));
     margin-left: 16px;
     margin-right: 16px;
+  }
+}
+
+/* Respect a reduced-motion preference: neutralize transitions, the animated
+   nav pill (.studio-nav.is-dynamic::before), and smooth anchor scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

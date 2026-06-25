@@ -3,22 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'">
     <title>Haitian Zhu - Software Engineer</title>
     <meta name="description" content="Haitian Zhu builds mobile apps, AI-assisted workflows, and data-backed product systems.">
     <meta property="og:title" content="Haitian Zhu - Software Engineer">
     <meta property="og:description" content="Mobile apps, AI-assisted workflows, and data-backed product systems.">
-    <meta property="og:image" content="https://kiraguriz.github.io/assets/images/onlyplanes-hero.png">
+    <meta property="og:image" content="https://kiraguriz.github.io/assets/images/onlyplanes-hero.jpg">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kiraguriz.github.io/">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://kiraguriz.github.io/">
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%234f3dcf'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20fill='white'%20font-family='Inter,system-ui,sans-serif'%20font-weight='700'%20font-size='18'%3EH%3C/text%3E%3C/svg%3E">
     <link rel="preload" as="image" href="assets/images/portrait-640.webp" fetchpriority="high" type="image/webp">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap"></noscript>
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260606b">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260624">
   </head>
   <body class="studio">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -89,7 +86,7 @@
           </div>
           <div class="studio-prose">
             <p>I build software by following the evidence: read the current system, find the source of truth, change the smallest surface that solves the problem, then verify it with tests, device runs, or live data.</p>
-            <p>Most of my recent work sits between mobile product and operational systems: live flight tracking in OnlyPlanes, an AI-coached fitness tracker on Flutter, a bird-ID trainer in vBird, and a paper-trading research stack where logs and account state have to agree.</p>
+            <p>Most of my recent work sits between mobile product and operational systems: live flight tracking in OnlyPlanes, an AI-coached fitness tracker on Flutter, and a bird-ID trainer in vBird &mdash; plus ongoing research into trading-system correctness, where logs and account state have to agree.</p>
             <p>I use AI heavily, but I don't want it to blur responsibility. Good tools should show their assumptions, preserve user data, ask before destructive actions, and help a person make a better decision instead of pretending to be magic.</p>
           </div>
         </div>
@@ -100,7 +97,7 @@
           <article class="studio-now-card" aria-labelledby="now-heading">
             <div class="studio-now-head">
               <span class="studio-chip-dark">02 / Now</span>
-              <span class="studio-now-updated">Updated June 6</span>
+              <span class="studio-now-updated">Updated June 24</span>
             </div>
             <h2 id="now-heading" class="studio-display studio-now-h2">
               What I'm up to <em class="studio-now-italic">right now.</em>
@@ -370,6 +367,22 @@
                   <li>Integrated Google Gemini AI for five coaching features (daily tips, workout suggestions, diet advice, post-session feedback, weekly goal adjustments) with file-based JSON caching that cut redundant API calls.</li>
                   <li>Architected a 15-repository SQLite layer with schema migrations for meals, workouts, body metrics, goals, and AI results, plus a USDA FoodData Central integration with debounced search and offline-first caching.</li>
                   <li>Built an evidence-based goal engine using Mifflin-St Jeor and Schofield BMR formulas to auto-calculate calorie and macro targets, with HealthKit/Google Fit activity sync.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="studio-resume-item">
+              <div class="studio-resume-meta">
+                <span class="studio-resume-kind">Project</span>
+                <span class="studio-resume-when">2025</span>
+              </div>
+              <div class="studio-resume-body">
+                <h3>vBird &mdash; bird-ID trainer</h3>
+                <p class="studio-resume-stack">Expo · React Native · TypeScript · Supabase · Python</p>
+                <ul>
+                  <li>Built a North American bird-identification trainer (Expo SDK 54, TypeScript-strict) with a casual swipe mode and an FSRS spaced-repetition learning mode.</li>
+                  <li>Modeled users, learning state, species data, and images on Supabase (Postgres, Auth, Storage, Edge Functions, migrations, row-level security), with Cloudflare in front of Storage.</li>
+                  <li>Wrote an offline Python (uv) pipeline from eBird, Wikidata, Wikipedia, and iNaturalist with Gemini-assisted extraction, keeping a source-audit trail and a SHA-256 evidence manifest for release.</li>
                 </ul>
               </div>
             </article>

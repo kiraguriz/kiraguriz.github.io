@@ -1,2 +1,7 @@
 .DS_Store
 .claude/
+.gstack/
+
+# Internal engineering review reports & improvement plans — keep local,
+# don't publish to GitHub Pages (would be crawlable at /docs/).
+docs/

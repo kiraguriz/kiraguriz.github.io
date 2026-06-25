@@ -1,0 +1,41 @@
+name: verify
+
+# Static-site verification gate. This is NOT a build step: it never compiles,
+# bundles, or transforms the site — it only checks the hand-written files on
+# every push/PR so broken links, missing assets, or invalid HTML are caught
+# before they reach GitHub Pages.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Link & asset check
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Validate internal links, asset refs, and #fragment targets.
+          # Exclude bot-blocked / rate-limited hosts so CI stays deterministic.
+          args: >-
+            --no-progress
+            --include-fragments
+            --exclude 'linkedin\.com'
+            --exclude 'fonts\.(googleapis|gstatic)\.com'
+            './**/*.html'
+          fail: true
+
+      - name: HTML validate (W3C Nu)
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: .
+          # Don't validate the markdown review/plan docs.
+          blacklist: docs
