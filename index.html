@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://kiraguriz.github.io/">
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%234f3dcf'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20fill='white'%20font-family='Inter,system-ui,sans-serif'%20font-weight='700'%20font-size='18'%3EH%3C/text%3E%3C/svg%3E">
     <link rel="preload" as="image" href="assets/images/portrait-640.webp" fetchpriority="high" type="image/webp">
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260809c">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260809m">
   </head>
   <body class="studio">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -24,7 +24,9 @@
       <aside class="studio-home-rail" aria-label="Homepage sections">
         <div class="studio-home-rail-inner">
           <div class="studio-home-person">
-            <img src="assets/images/portrait-640.webp" alt="Haitian Zhu at Wuyishan, in front of the Da Hong Pao rock inscription" width="511" height="640" fetchpriority="high">
+            <div class="studio-home-portrait-frame">
+              <img src="assets/images/portrait-640.webp" alt="Haitian Zhu at Wuyishan, in front of the Da Hong Pao rock inscription" width="511" height="640" fetchpriority="high">
+            </div>
             <strong>Haitian Zhu</strong>
             <span>Naperville → Chicago</span>
           </div>
@@ -37,371 +39,130 @@
             Open to software internships
           </a>
           <nav class="studio-home-rail-nav" aria-label="Primary">
-            <a href="#work"><small>01</small><span>Work<span>project evidence</span></span></a>
-            <a href="#about"><small>02</small><span>About<span>working style</span></span></a>
-            <a href="#now"><small>03</small><span>Now<span>current focus</span></span></a>
-            <a href="#resume"><small>04</small><span>Resume<span>candidate packet</span></span></a>
+            <a href="#overview"><small>01</small><span>Overview<span>at a glance</span></span></a>
+            <a href="#work"><small>02</small><span>Projects<span>reverse chronological</span></span></a>
+            <a href="#about"><small>03</small><span>About<span>working style</span></span></a>
+            <a href="assets/haitian-zhu-resume.pdf" download><small>↓</small><span>Resume PDF<span>download one page</span></span></a>
           </nav>
-          <dl class="studio-home-status">
-            <div>
-              <dt>Currently</dt>
-              <dd>Open to software internships.</dd>
-            </div>
-          </dl>
-          <a class="studio-home-primary" href="#work">Start with selected work <span aria-hidden="true">→</span></a>
         </div>
       </aside>
 
       <div class="studio-home-content">
-      <section class="studio-hero" aria-labelledby="hero-heading">
-        <div class="studio-hero-card studio-hero-rail-card">
-          <div class="studio-home-main">
-            <div class="studio-home-hero-copy">
-              <span class="studio-hero-kicker">B.S. Computer Science · University of Illinois Chicago · May 2027</span>
-              <h1 id="hero-heading" class="studio-display studio-hero-h1">Five mobile and data projects, built between 2025 and 2026.</h1>
-              <p class="studio-lede">
-                Three run on both iOS and Android. Across those projects, I built client apps, API layers, and databases &mdash; often end to end. I'm looking for a software engineering internship for summer 2027.
-              </p>
-              <div class="studio-home-meta" role="group" aria-label="Technical languages">
-                <span>Dart</span>
-                <span>TypeScript</span>
-                <span>Java</span>
-                <span>Swift</span>
-                <span>Python</span>
-                <span>C / C++</span>
-                <span>SQL</span>
-              </div>
-              <div class="studio-hero-actions">
-                <a class="studio-btn studio-btn-accent" href="#work">Read selected work <span aria-hidden="true">→</span></a>
-                <a class="studio-btn studio-btn-outline" href="mailto:haitiandzhu@gmail.com">Say hi</a>
-              </div>
-            </div>
+      <section class="studio-log-hero" id="overview" aria-labelledby="hero-heading">
+        <div class="studio-log-intro">
+          <span class="studio-log-kicker">B.S. Computer Science, University of Illinois Chicago · May 2027</span>
+          <h1 id="hero-heading" class="studio-display">Five mobile and data projects, built between 2025 and 2026.</h1>
+          <p>Three of them run on iOS and Android. I wrote the clients, the APIs behind them, and the databases underneath &mdash; often all three. I'm looking for a software engineering internship for summer 2027.</p>
+          <div class="studio-log-tags" role="group" aria-label="Technical languages">
+            <span>Dart</span><span>TypeScript</span><span>Java</span><span>Swift</span><span>Python</span><span>C / C++</span><span>SQL</span>
           </div>
         </div>
+        <aside class="studio-log-glance" aria-label="Portfolio at a glance">
+          <h2>At a glance</h2>
+          <dl>
+            <div><dt>Projects</dt><dd>5</dd></div>
+            <div><dt>Platforms</dt><dd>iOS · Android</dd></div>
+            <div><dt>Largest team</dt><dd>4 people</dd></div>
+            <div><dt>Core layers</dt><dd>client · API · data</dd></div>
+            <div><dt>Graduating</dt><dd>May 2027</dd></div>
+          </dl>
+        </aside>
       </section>
 
-      <section class="studio-work" id="work" aria-labelledby="work-heading">
-        <div class="studio-work-card">
-          <div class="studio-work-head">
-            <span class="studio-chip-dim">01 / Selected work</span>
-            <h2 id="work-heading" class="studio-display studio-section-h2">Things I've made.</h2>
-            <p class="studio-work-blurb">Five case studies. Each one shows the problem, my ownership, the system decisions, and what I verified.</p>
-            <div class="studio-phones" aria-hidden="true">
-              <span class="studio-phone studio-phone-violet"></span>
-              <span class="studio-phone studio-phone-navy"></span>
-              <span class="studio-phone studio-phone-sand"></span>
-            </div>
-          </div>
-          <div class="studio-work-main">
-            <div class="studio-work-list">
-              <a class="studio-work-row" href="case-studies/workout-movement-tracker.html?v=20260710">
-                <span class="studio-work-num">01</span>
-                <span class="studio-work-year">2026</span>
-                <span class="studio-work-body">
-                  <span class="studio-work-title">Workout Movement Tracker</span>
-                  <span class="studio-work-desc">Flutter fitness app with a Gemini coach and a SQLite layer that won't lose your data.</span>
-                </span>
-                <span class="studio-work-stack">Flutter · Gemini · SQLite</span>
-              </a>
-              <a class="studio-work-row" href="case-studies/onlyplanes.html?v=20260710">
-                <span class="studio-work-num">02</span>
-                <span class="studio-work-year">2026</span>
-                <span class="studio-work-body">
-                  <span class="studio-work-title">OnlyPlanes</span>
-                  <span class="studio-work-desc">Aviation companion &mdash; live flight tracking over a small Fastify backend.</span>
-                </span>
-                <span class="studio-work-stack">React Native · Fastify · Maps</span>
-              </a>
-              <a class="studio-work-row" href="case-studies/vbird.html?v=20260710">
-                <span class="studio-work-num">03</span>
-                <span class="studio-work-year">2025</span>
-                <span class="studio-work-body">
-                  <span class="studio-work-title">vBird</span>
-                  <span class="studio-work-desc">A bird-ID swipe game on Supabase, with an FSRS spaced-repetition learning mode.</span>
-                </span>
-                <span class="studio-work-stack">Expo · Supabase · FSRS</span>
-              </a>
-              <a class="studio-work-row" href="case-studies/poker.html?v=20260710">
-                <span class="studio-work-num">04</span>
-                <span class="studio-work-year">2025</span>
-                <span class="studio-work-body">
-                  <span class="studio-work-title">Networked 3-Card Poker</span>
-                  <span class="studio-work-desc">A multi-threaded JavaFX card game where up to eight clients play over TCP sockets.</span>
-                </span>
-                <span class="studio-work-stack">Java · JavaFX · Sockets</span>
-              </a>
-              <a class="studio-work-row" href="case-studies/chicago-traffic.html?v=20260710">
-                <span class="studio-work-num">05</span>
-                <span class="studio-work-year">2025</span>
-                <span class="studio-work-body">
-                  <span class="studio-work-title">Chicago Traffic Violation Analysis</span>
-                  <span class="studio-work-desc">SQL analytics over Chicago's red-light and speed-camera data, with mapped results.</span>
-                </span>
-                <span class="studio-work-stack">Python · SQL · SQLite</span>
-              </a>
-              <div class="studio-work-foot">
-                <a class="studio-link" href="https://github.com/kiraguriz">See everything on GitHub ↗</a>
-              </div>
-            </div>
-          </div>
+      <section class="studio-log-projects" id="work" aria-labelledby="work-heading">
+        <div class="studio-log-section-head">
+          <h2 id="work-heading">Projects · reverse chronological</h2>
+          <span>5 entries</span>
         </div>
-      </section>
-
-      <section class="studio-about" id="about" aria-labelledby="about-heading">
-        <div class="studio-row">
-          <div class="studio-row-head">
-            <span class="studio-chip-dim">02 / About</span>
-            <h2 id="about-heading" class="studio-display studio-section-h2">How I got here.</h2>
-          </div>
-          <div class="studio-prose">
-            <p>I build software by following the evidence: read the current system, find the source of truth, change the smallest surface that solves the problem, then verify it with tests, device runs, or live data.</p>
-            <p>Most of my recent work sits between mobile product and operational systems: live flight tracking in OnlyPlanes, an AI-coached fitness tracker on Flutter, and a bird-ID trainer in vBird.</p>
-            <p>I use AI heavily, but I don't want it to blur responsibility. Good tools should show their assumptions, preserve user data, ask before destructive actions, and help a person make a better decision instead of pretending to be magic.</p>
-          </div>
-        </div>
-      </section>
-
-      <div class="studio-now-section" id="now">
-        <div class="studio-now-row">
-          <article class="studio-now-card" aria-labelledby="now-heading">
-            <div class="studio-now-head">
-              <span class="studio-chip-dark">03 / Now</span>
-              <span class="studio-now-updated">Updated July 10, 2026</span>
-            </div>
-            <h2 id="now-heading" class="studio-display studio-now-h2">
-              What I'm up to <em class="studio-now-italic">right now.</em>
-            </h2>
-            <dl class="studio-now-list">
-              <div class="studio-now-item">
-                <dt>Building</dt>
-                <dd>OnlyPlanes reliability work and tracker polish, with live aviation data treated as a product surface instead of decoration.</dd>
-              </div>
-              <div class="studio-now-item">
-                <dt>Shipping</dt>
-                <dd>Cross-platform mobile quality across React Native, Expo, Flutter, SwiftUI, and the unglamorous parts of release work.</dd>
-              </div>
-              <div class="studio-now-item">
-                <dt>Researching</dt>
-                <dd>How AI-assisted features stay grounded in saved state, explicit assumptions, validation, and recovery.</dd>
-              </div>
-            </dl>
-          </article>
-
-          <div class="studio-now-side">
-            <article class="studio-off-card" aria-labelledby="off-heading">
-              <h2 id="off-heading" class="studio-display studio-off-h2">What keeps me calibrated.</h2>
-              <div class="studio-off-grid">
-                <div class="studio-off-item">
-                  <span class="studio-off-emoji" aria-hidden="true">📷</span>
-                  <div>
-                    <strong>Photography</strong>
-                    <p>Street photos and quiet compositions; I like waiting until a small detail explains the scene.</p>
-                  </div>
-                </div>
-                <div class="studio-off-item">
-                  <span class="studio-off-emoji" aria-hidden="true">🗺️</span>
-                  <div>
-                    <strong>Maps &amp; walks</strong>
-                    <p>Transit diagrams, trail lines, and walks long enough for a hard problem to loosen.</p>
-                  </div>
-                </div>
-                <div class="studio-off-item">
-                  <span class="studio-off-emoji" aria-hidden="true">🍜</span>
-                  <div>
-                    <strong>Cooking &amp; films</strong>
-                    <p>My mother's recipes, slow movies, and stories that keep changing after the credits.</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <a class="studio-pitch" href="mailto:haitiandzhu@gmail.com">
-              <div>
-                <span class="studio-pitch-eyebrow">Currently</span>
-                <span class="studio-pitch-headline">Open to software<br>internships</span>
-              </div>
-              <span class="studio-pitch-btn">Say hi <span aria-hidden="true">→</span></span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <section class="studio-resume" id="resume" aria-labelledby="resume-heading">
-        <div class="studio-resume-head">
-          <span class="studio-chip-dim">04 / Resume</span>
-          <h2 id="resume-heading" class="studio-display studio-section-h2">Software engineering, mobile apps, and AI systems.</h2>
-          <p class="studio-resume-note">Prefer the one-page version? Download the PDF, or reach me by email, LinkedIn, or GitHub.</p>
-        </div>
-
-        <div class="studio-resume-grid">
-          <div class="studio-resume-aside">
-            <aside class="studio-resume-contact">
-              <span class="studio-resume-rail-label">Contact</span>
-              <dl class="studio-resume-facts">
-                <div>
-                  <dt>Email</dt>
-                  <dd><a href="mailto:haitiandzhu@gmail.com">haitiandzhu@gmail.com</a></dd>
-                </div>
-                <div>
-                  <dt>Location</dt>
-                  <dd>Naperville, IL</dd>
-                </div>
-                <div>
-                  <dt>Languages</dt>
-                  <dd>Mandarin Chinese, English</dd>
-                </div>
+        <div class="studio-log-records">
+          <a class="studio-log-record" href="case-studies/onlyplanes.html?v=20260710">
+            <figure class="studio-log-plate studio-log-plate-icon">
+              <img src="assets/images/onlyplanes-icon.png" alt="OnlyPlanes app icon" width="512" height="512" loading="lazy">
+              <figcaption>App icon · iOS · Android</figcaption>
+            </figure>
+            <div class="studio-log-record-copy">
+              <p class="studio-log-record-meta"><span>2026-04 → now</span> · co-designed, sole implementer · iOS · Android</p>
+              <h3 class="studio-display">OnlyPlanes</h3>
+              <p class="studio-log-record-lede">Live flight tracking for someone standing outside with a phone. The hard part isn't drawing a marker &mdash; it's making changing aircraft data trustworthy enough to act on.</p>
+              <dl class="studio-log-facts">
+                <div><dt>Stack</dt><dd>React Native · Expo · TypeScript · Fastify · SQLite</dd></div>
+                <div><dt>I built</dt><dd>The client, API, and shared type package</dd></div>
+                <div><dt>Verified by</dt><dd>Lint · typecheck · build · Jest gates</dd></div>
               </dl>
-            </aside>
-            <a class="studio-resume-download" href="assets/haitian-zhu-resume.pdf" download>
-              <span class="studio-resume-download-head">
-                <span class="studio-resume-download-label">PDF</span>
-                <span class="studio-resume-download-icon" aria-hidden="true">↓</span>
-              </span>
-              <span class="studio-resume-download-title">Download resume</span>
-              <span class="studio-resume-download-sub">The full one-page version.</span>
+              <span class="studio-log-read">Read the case study →</span>
+            </div>
+          </a>
+
+          <a class="studio-log-record" href="case-studies/workout-movement-tracker.html?v=20260710">
+            <figure class="studio-log-plate studio-log-plate-icon">
+              <img src="assets/images/workout-logo.webp" alt="Workout Movement Tracker app icon" width="551" height="551" loading="lazy">
+              <figcaption>App icon · iOS · Android</figcaption>
+            </figure>
+            <div class="studio-log-record-copy">
+              <p class="studio-log-record-meta"><span>2026-01 → 2026-05</span> · 42 of 91 commits, team of 4 · iOS · Android</p>
+              <h3 class="studio-display">Workout Movement Tracker</h3>
+              <p class="studio-log-record-lede">A Flutter fitness app built by four people over one semester. I owned the data layer, AI coaching features, diet tracking, and the goal engine.</p>
+              <dl class="studio-log-facts">
+                <div><dt>Stack</dt><dd>Flutter · Dart · SQLite · Gemini · ML Kit</dd></div>
+                <div><dt>I built</dt><dd>SQLite repositories, cached AI flows, nutrition, and goals</dd></div>
+                <div><dt>Verified by</dt><dd>42 / 91 commits · Android release demo</dd></div>
+              </dl>
+              <span class="studio-log-read">Read the case study →</span>
+            </div>
+          </a>
+
+          <a class="studio-log-record" href="case-studies/vbird.html?v=20260710">
+            <figure class="studio-log-plate studio-log-plate-icon">
+              <img src="assets/images/vbird-icon.png" alt="vBird app icon" width="512" height="512" loading="lazy">
+              <figcaption>iPhone · FSRS review</figcaption>
+            </figure>
+            <div class="studio-log-record-copy">
+              <p class="studio-log-record-meta"><span>2025</span> · solo · iOS · Android</p>
+              <h3 class="studio-display">vBird</h3>
+              <p class="studio-log-record-lede">Bird identification as a swipe game, with a spaced-repetition mode for people who want the knowledge to stick.</p>
+              <dl class="studio-log-facts">
+                <div><dt>Stack</dt><dd>Expo SDK 54 · TypeScript · Supabase · Python</dd></div>
+                <div><dt>I built</dt><dd>The app, database schema, and offline data pipeline</dd></div>
+                <div><dt>Verified by</dt><dd>Source-audit trail · SHA-256 evidence manifest</dd></div>
+              </dl>
+              <span class="studio-log-read">Read the case study →</span>
+            </div>
+          </a>
+
+          <div class="studio-log-small-grid">
+            <a class="studio-log-small" href="case-studies/poker.html?v=20260710">
+              <p><span>2025-11</span> · solo · JavaFX desktop</p>
+              <h3 class="studio-display">Networked 3-Card Poker</h3>
+              <p>A desktop card game where up to eight JavaFX clients play against one multi-threaded server over TCP sockets.</p>
+              <span>Java · JavaFX · sockets · JUnit</span>
+            </a>
+            <a class="studio-log-small" href="case-studies/chicago-traffic.html?v=20260710">
+              <p><span>2025-09</span> · solo · CLI · plots · maps</p>
+              <h3 class="studio-display">Chicago Traffic Violation Analysis</h3>
+              <p>A Python console tool that turns Chicago camera records into ranked intersections, yearly trends, and mapped locations.</p>
+              <span>Python · SQL · SQLite · Matplotlib</span>
             </a>
           </div>
+        </div>
 
-          <div class="studio-resume-timeline">
-            <article class="studio-resume-item">
-              <div class="studio-resume-meta">
-                <span class="studio-resume-kind">Education</span>
-              </div>
-              <div class="studio-resume-body">
-                <h3>University of Illinois Chicago</h3>
-                <p class="studio-resume-line">B.S. in Computer Science, expected May 2027</p>
-                <p>Relevant coursework: Data Structures, Computer Design, Software Design, Software Engineering, Programming Languages Design and Implementation, System Programming.</p>
-              </div>
-            </article>
-
-            <article class="studio-resume-item">
-              <div class="studio-resume-meta">
-                <span class="studio-resume-kind">Toolkit</span>
-              </div>
-              <div class="studio-resume-body">
-                <h3>Technical skills</h3>
-                <dl class="studio-resume-skills">
-                  <div>
-                    <dt>Languages</dt>
-                    <dd>Java, Dart, TypeScript, JavaScript, C, C++, Swift, Go, Python, HTML/CSS, SQL</dd>
-                  </div>
-                  <div>
-                    <dt>Frameworks &amp; tools</dt>
-                    <dd>Flutter, React Native, Expo, Fastify, Node.js, JavaFX, Google Gemini AI SDK, ML Kit, Jest, JUnit, Xcode, Maven, Git, GDB</dd>
-                  </div>
-                  <div>
-                    <dt>Concepts</dt>
-                    <dd>Cross-platform mobile development, REST API integration, real-time systems, AI/ML integration, object-oriented programming, multithreading, network programming.</dd>
-                  </div>
-                </dl>
-              </div>
-            </article>
-
-            <article class="studio-resume-item">
-              <div class="studio-resume-meta">
-                <span class="studio-resume-kind">Project</span>
-                <span class="studio-resume-when">Apr 2026 &ndash; present</span>
-              </div>
-              <div class="studio-resume-body">
-                <h3>OnlyPlanes &mdash; live flight tracking app</h3>
-                <p class="studio-resume-stack">React Native · Expo · TypeScript · Fastify · SQLite</p>
-                <ul>
-                  <li>Co-designed a cross-platform aviation app (iOS &amp; Android) with a team and solely implemented the codebase, a TypeScript monorepo spanning a React Native/Expo client, a Fastify backend, and a shared type package.</li>
-                  <li>Built a real-time flight-tracking backend with Fastify and SQLite (WAL mode) that polls the OpenSky Network into an in-memory cache and serves REST endpoints for bounding-box queries, flight detail, and callsign/ICAO24 search.</li>
-                  <li>Engineered an interactive live map (MapKit on iOS, Google Maps on Android) rendering directional aircraft markers with smooth position interpolation between ~5s update intervals.</li>
-                  <li>Set up GitHub Actions CI/CD enforcing lint, typecheck, build, and Jest test suites on every push.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="studio-resume-item">
-              <div class="studio-resume-meta">
-                <span class="studio-resume-kind">Project</span>
-                <span class="studio-resume-when">Jan 2026 &ndash; May 2026</span>
-              </div>
-              <div class="studio-resume-body">
-                <h3>Workout Movement Tracker</h3>
-                <p class="studio-resume-stack">Flutter · Dart · SQLite · Google Gemini AI · ML Kit</p>
-                <ul>
-                  <li>Led development of a cross-platform fitness app (iOS &amp; Android) in a four-person team, authoring 42 of 91 commits across the database, AI, diet, goal, and UI layers.</li>
-                  <li>Integrated Google Gemini AI for five coaching features (daily tips, workout suggestions, diet advice, post-session feedback, weekly goal adjustments) with file-based JSON caching that cut redundant API calls.</li>
-                  <li>Architected a 15-repository SQLite layer with schema migrations for meals, workouts, body metrics, goals, and AI results, plus a USDA FoodData Central integration with debounced search and offline-first caching.</li>
-                  <li>Built an evidence-based goal engine using Mifflin-St Jeor and Schofield BMR formulas to auto-calculate calorie and macro targets, with HealthKit/Google Fit activity sync.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="studio-resume-item">
-              <div class="studio-resume-meta">
-                <span class="studio-resume-kind">Project</span>
-                <span class="studio-resume-when">2025</span>
-              </div>
-              <div class="studio-resume-body">
-                <h3>vBird &mdash; bird-ID trainer</h3>
-                <p class="studio-resume-stack">Expo · React Native · TypeScript · Supabase · Python</p>
-                <ul>
-                  <li>Built a North American bird-identification trainer (Expo SDK 54, TypeScript-strict) with a casual swipe mode and an FSRS spaced-repetition learning mode.</li>
-                  <li>Modeled users, learning state, species data, and images on Supabase (Postgres, Auth, Storage, Edge Functions, migrations, row-level security), with Cloudflare in front of Storage.</li>
-                  <li>Wrote an offline Python (uv) pipeline from eBird, Wikidata, Wikipedia, and iNaturalist with Gemini-assisted extraction, keeping a source-audit trail and a SHA-256 evidence manifest for release.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="studio-resume-item">
-              <div class="studio-resume-meta">
-                <span class="studio-resume-kind">Project</span>
-                <span class="studio-resume-when">Nov 2025</span>
-              </div>
-              <div class="studio-resume-body">
-                <h3>Multiplayer 3-Card Poker Game</h3>
-                <p class="studio-resume-stack">Java · JavaFX · sockets</p>
-                <ul>
-                  <li>Developed a distributed client-server card game with real-time state synchronization.</li>
-                  <li>Engineered a multi-threaded TCP socket server using object serialization and JUnit-tested hand evaluation logic.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="studio-resume-item">
-              <div class="studio-resume-meta">
-                <span class="studio-resume-kind">Project</span>
-                <span class="studio-resume-when">Sep 2025</span>
-              </div>
-              <div class="studio-resume-body">
-                <h3>Chicago Traffic Violation Analysis System</h3>
-                <p class="studio-resume-stack">Python · SQL · SQLite</p>
-                <ul>
-                  <li>Built a console application for analyzing and visualizing Chicago red light and speed camera violation data.</li>
-                  <li>Used joins, aggregations, and subqueries to extract location and trend insights.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="studio-resume-item">
-              <div class="studio-resume-meta">
-                <span class="studio-resume-kind">Certification</span>
-                <span class="studio-resume-when">Dec 2025</span>
-              </div>
-              <div class="studio-resume-body">
-                <h3>Apple App Development with Swift &mdash; Associate</h3>
-              </div>
-            </article>
-          </div>
+        <div class="studio-log-about" id="about">
+          <article aria-labelledby="about-heading">
+            <span class="studio-log-label">About</span>
+            <h2 id="about-heading" class="visually-hidden">About Haitian Zhu</h2>
+            <p>I read the system before I change it, find where its truth is stored, then change the smallest surface that solves the problem and verify it with a test, a device run, or live data.</p>
+            <p>Where a feature is AI-driven, I keep its output cached, sourced, and reversible, so a wrong answer costs a suggestion and not a user's data.</p>
+          </article>
+          <aside class="studio-log-education" id="resume" aria-labelledby="resume-heading">
+            <span class="studio-log-label">Education</span>
+            <h2 id="resume-heading" class="studio-display">University of Illinois Chicago</h2>
+            <p>B.S. Computer Science · May 2027</p>
+            <p>Data Structures · Computer Design · Software Design · Software Engineering · Programming Languages · System Programming</p>
+            <p>Apple App Development with Swift &mdash; Associate · Dec 2025</p>
+            <a href="assets/haitian-zhu-resume.pdf" download>Download resume PDF ↓</a>
+          </aside>
         </div>
       </section>
 
-      <section class="studio-postscript" aria-labelledby="post-heading">
-        <span class="studio-chip-dim">Postscript</span>
-        <h2 id="post-heading" class="studio-display studio-post-line">
-          If you read this far, that already tells me something. Drop me a line &mdash; I'd rather have a coffee than a coffee chat.
-        </h2>
-        <div class="studio-post-actions">
-          <a class="studio-btn studio-btn-accent" href="mailto:haitiandzhu@gmail.com">haitiandzhu@gmail.com</a>
-          <a class="studio-btn studio-btn-outline" href="https://github.com/kiraguriz">GitHub ↗</a>
-          <a class="studio-btn studio-btn-outline" href="https://linkedin.com/in/haitian-daniel-zhu">LinkedIn ↗</a>
-        </div>
-        <p class="studio-signoff">&mdash; Haitian</p>
-      </section>
       </div>
     </main>
 
