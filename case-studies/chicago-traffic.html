@@ -1,12 +1,10 @@
-<!doctype html>
-<html lang="en">
-  <head>
+<!doctype html><html lang="en"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'">
-    <title>Chicago Traffic Violation Analysis - Haitian Zhu</title>
+    <title>Chicago Traffic Analysis — Haitian Zhu</title>
     <meta name="description" content="Case study for a Python and SQL console tool that analyzes and maps Chicago red-light and speed-camera violation data from a 68MB SQLite database.">
-    <meta property="og:title" content="Chicago Traffic Violation Analysis - Haitian Zhu">
+    <meta property="og:title" content="Chicago Traffic Analysis — Haitian Zhu">
     <meta property="og:description" content="A Python + SQL console app over Chicago's red-light and speed-camera data: joins, aggregations, subqueries, and matplotlib maps.">
     <meta property="og:image" content="https://kiraguriz.github.io/assets/images/chicago-traffic-map.png">
     <meta property="og:type" content="article">
@@ -14,149 +12,127 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://kiraguriz.github.io/case-studies/chicago-traffic.html">
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%234f3dcf'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20fill='white'%20font-family='Inter,system-ui,sans-serif'%20font-weight='700'%20font-size='18'%3EH%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20260809m">
-  </head>
-  <body class="studio">
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <main id="main" class="case-study-page case-study-shell">
-      <aside class="case-study-rail" aria-label="Portfolio navigation">
-        <div class="case-study-rail-inner">
-          <div class="studio-home-person">
-            <div class="studio-home-portrait-frame">
-              <img src="../assets/images/portrait-640.webp" alt="Haitian Zhu at Wuyishan, in front of the Da Hong Pao rock inscription" width="511" height="640" fetchpriority="high">
-            </div>
-            <strong>Haitian Zhu</strong>
-            <span>Naperville → Chicago</span>
-          </div>
-          <div class="studio-home-external" role="group" aria-label="External profiles">
-            <a href="https://github.com/kiraguriz">GitHub</a>
-            <a href="https://linkedin.com/in/haitian-daniel-zhu">LinkedIn</a>
-          </div>
-          <a class="studio-home-opportunity" href="mailto:haitiandzhu@gmail.com">
-            <span class="studio-cta-dot" aria-hidden="true"></span>
-            Open to software internships
-          </a>
-          <nav class="studio-home-rail-nav case-site-nav" aria-label="Portfolio sections">
-            <a href="../index.html#overview"><small>01</small><span>Overview<span>at a glance</span></span></a>
-            <a class="is-active" href="../index.html#work" aria-current="location"><small>02</small><span>Projects<span>reverse chronological</span></span></a>
-            <a href="../index.html#about"><small>03</small><span>About<span>working style</span></span></a>
-            <a href="../assets/haitian-zhu-resume.pdf" download><small>↓</small><span>Resume PDF<span>download one page</span></span></a>
-          </nav>
-          <span class="case-rail-label">Case studies</span>
-          <nav class="case-rail-projects" aria-label="Case studies">
-            <a href="workout-movement-tracker.html?v=20260710"><span>Workout</span><small>01</small></a>
-            <a href="onlyplanes.html?v=20260710"><span>OnlyPlanes</span><small>02</small></a>
-            <a href="vbird.html?v=20260710"><span>vBird</span><small>03</small></a>
-            <a href="poker.html?v=20260710"><span>Poker</span><small>04</small></a>
-            <a href="chicago-traffic.html?v=20260710" aria-current="page"><span>Traffic</span><small>05</small></a>
-          </nav>
-          <a class="case-rail-back" href="../index.html#work">Back to work <span aria-hidden="true">→</span></a>
-        </div>
-      </aside>
-
-      <div class="case-study-content">
-
-      <section class="case-hero" aria-labelledby="case-title">
-        <div class="case-evidence-shell">
-          <div class="case-evidence-main">
-            <div class="case-evidence-masthead">
-              <div>
-                <div class="case-evidence-copy">
-                  <span class="studio-chip">★ Case 05 · query-and-map evidence</span>
-                  <h1 id="case-title" class="studio-display case-title">Chicago traffic <em>queried.</em></h1>
-                  <p class="case-lede">A Python console tool that turns a 68&nbsp;MB SQLite database of Chicago red-light and speed-camera records into ranked intersections, yearly trends, and mapped camera locations.</p>
-                  <dl class="case-meta" aria-label="Chicago Traffic project facts">
-                    <div><dt>Role</dt><dd>Query · analysis · visualization</dd></div>
-                    <div><dt>Period</dt><dd>Sep 2025</dd></div>
-                    <div><dt>Surface</dt><dd>CLI · plots · maps</dd></div>
-                    <div><dt>Dataset</dt><dd>Chicago cameras</dd></div>
-                  </dl>
-                  <div class="case-actions">
-                    <a class="studio-btn studio-btn-accent" href="#problem-heading">Problem</a>
-                    <a class="studio-btn studio-btn-outline" href="#system-heading">Method</a>
-                    <a class="studio-btn studio-btn-outline" href="#built-heading">Queries</a>
-                  </div>
-                </div>
-                <div class="case-evidence-receipts" role="group" aria-label="Chicago Traffic evidence">
-                  <div><strong>SQL</strong><span>Nine analyses across joins, aggregation, subqueries, and date grouping.</span></div>
-                  <div><strong>Dataset</strong><span>~68 MB SQLite store across intersection, camera, and violation tables.</span></div>
-                  <div><strong>Plots</strong><span>matplotlib trend charts plus camera locations over a Chicago basemap.</span></div>
-                  <div><strong>Safety</strong><span>Parameterized queries support wildcard search while keeping inputs bound.</span></div>
-                </div>
-              </div>
-
-              <aside class="case-evidence-visual case-evidence-visual-traffic" aria-label="Chicago Traffic map preview">
-                <div class="case-evidence-video-card">
-                  <img src="../assets/images/chicago-traffic-map.png" alt="Map of Chicago used to plot camera locations" width="338" height="472">
-                  <div>
-                    <strong>Mapped camera dataset</strong>
-                    <span>Python · SQL · matplotlib</span>
-                  </div>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="case-row" aria-labelledby="problem-heading">
-        <div class="case-row-grid">
-          <div>
-            <span class="studio-chip-dim">01 / Problem</span>
-            <h2 id="problem-heading" class="studio-display case-section-title">A big table answers nothing by itself.</h2>
-          </div>
-          <div class="case-prose">
-            <p>The dataset is a 68&nbsp;MB SQLite file of intersections, red-light cameras, speed cameras, and daily violation counts &mdash; far too much to read by hand and easy to summarize wrongly.</p>
-            <p>The task was to ask real questions of it: which intersections offend most, how violations move year over year, and where a given street's cameras actually stand on a map.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="case-row" aria-labelledby="approach-heading">
-        <div class="case-row-grid">
-          <div>
-            <span class="studio-chip-dim">02 / Approach</span>
-            <h2 id="approach-heading" class="studio-display case-section-title">Three rules I held to.</h2>
-          </div>
-          <div class="case-pillars">
-            <div class="case-pillar">
-              <span class="case-pillar-num">①</span>
-              <strong>Push work into SQL</strong>
-              <p>Joins, grouping, and percentage math run in the query, not in Python loops over fetched rows.</p>
-            </div>
-            <div class="case-pillar">
-              <span class="case-pillar-num">②</span>
-              <strong>Parameterize everything</strong>
-              <p>Every user input &mdash; intersection, street, year, camera ID &mdash; binds as a parameter, so wildcards work and injection doesn't.</p>
-            </div>
-            <div class="case-pillar">
-              <span class="case-pillar-num">③</span>
-              <strong>Make it legible</strong>
-              <p>Results print as ranked, formatted tables and, on request, as time-series and geographic plots people can actually read.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="case-system" aria-labelledby="system-heading">
-        <div class="case-row-grid">
-          <div>
-            <span class="studio-chip-dim">03 / System</span>
-            <h2 id="system-heading" class="studio-display case-section-title">How a question becomes a chart.</h2>
-            <p class="case-system-copy">A menu choice maps to a parameterized SQL query; rows come back formatted, and an optional matplotlib step turns them into a plot.</p>
-          </div>
-          <div class="case-system-stack">
-            <div class="case-diagram" role="img" aria-label="Chicago Traffic system diagram">
-              <div class="case-node"><strong>Console menu</strong><span>9 query options</span><small>user input</small></div>
-              <div class="case-flow">bind →</div>
-              <div class="case-node"><strong>SQLite</strong><span>joins · aggregates</span><small>~68 MB db</small></div>
-              <div class="case-flow">rows →</div>
-              <div class="case-node"><strong>matplotlib</strong><span>trends · maps</span><small>optional plot</small></div>
-            </div>
-            <div class="case-code-panel">
-              <div class="case-code-head"><span>query</span><span>violations per intersection, by year</span></div>
-              <pre><code>SELECT Intersections.Intersection,
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260906">
+    </head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner"><a class="wordmark" href="../index.html" aria-label="Haitian Zhu home">Haitian Zhu<span class="wordmark-dot" aria-hidden="true">.</span></a>
+<nav aria-label="Primary"><a aria-current="location" href="../index.html#work">Work</a><a  href="../index.html#about">About</a><a  href="../index.html#contact">Contact</a><a class="resume-link" href="../assets/haitian-zhu-resume.pdf" target="_blank" rel="noopener">Resume <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span><span class="sr-only"> (PDF, opens in a new tab)</span></a>
+</nav>
+</div>
+</header>
+<main id="main" class="wrap case-main" tabindex="-1">
+<div class="case-breadcrumb"><a href="../index.html#work"><span class="action-icon icon-left" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span> Selected work</a><span class="mono">05 / 05</span>
+</div>
+<section class="case-intro" aria-labelledby="case-title">
+<div>
+<p class="eyebrow">Chicago Traffic Analysis / Data · SQL · visualization</p>
+<h1 id="case-title">A better question<br>for a large table.</h1>
+</div>
+<div class="case-intro-copy">
+<p>A Python and SQLite tool for exploring Chicago camera violations through rankings, time trends, and maps.</p>
+<dl>
+<div>
+<dt>Role</dt>
+<dd>Solo · queries, console, and plots</dd>
+</div>
+<div>
+<dt>When</dt>
+<dd>Sep 2025</dd>
+</div>
+</dl>
+</div>
+</section>
+<nav class="case-nav" aria-label="On this page"><a href="#overview" data-section="overview">Overview</a><a href="#decisions" data-section="decisions">Key decisions</a><a href="#evidence" data-section="evidence">Evidence</a><span class="mono">CASE STUDY</span>
+</nav>
+<section class="case-showcase" aria-label="Project visual">
+<div class="project-stage traffic-stage">
+<div class="stage-heading"><span class="mono">CHICAGO / DATA EXPLORATION</span><span class="mono">BASEMAP ASSET</span>
+</div>
+<div class="traffic-visual">
+<p>Ask a question.<br><em>Find its shape.</em>
+</p><img src="../assets/images/chicago-traffic-map.png" alt="Chicago basemap used by the project; no violation data is overlaid" width="338" height="472" loading="lazy">
+</div>
+<p class="stage-note">Geographic base layer · not an analysis result</p>
+</div>
+<p class="visual-caption">A closer look at the project’s structure and available materials.</p>
+</section>
+<section class="case-section" id="overview" aria-labelledby="overview-title">
+<div>
+<p class="eyebrow">01 / THE PROBLEM</p>
+<h2 id="overview-title">A dataset needs a question before it needs a chart.</h2>
+</div>
+<div class="prose">
+<p class="large-prose">The source database combines intersections, camera locations, and daily violation counts. To compare locations or years, the tool needs consistent joins, grouping, and date handling before the results can be interpreted.</p>
+<h3>What I owned</h3>
+<p>I built a console tool that translates questions about intersections, cameras, years, and streets into parameterized SQL queries, formatted results, and optional plots.</p>
+<p class="stack-line"><span class="mono">BUILT WITH</span>Python / SQL / SQLite / Matplotlib</p>
+</div>
+</section>
+<section class="case-section" id="decisions" aria-labelledby="decisions-title">
+<div>
+<p class="eyebrow">02 / KEY DECISIONS</p>
+<h2 id="decisions-title">The choices<br><em>behind the work.</em>
+</h2>
+<p class="section-description">Implementation is a series of decisions. These are the ones that shape this project.</p>
+</div>
+<div class="decision-list">
+<details class="decision" open>
+<summary><span class="mono">01</span>
+<h3>Let SQL do the aggregation.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>Joins, grouped totals, percentages, and date grouping run in SQLite. Python receives the result set for formatting and plotting.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>This keeps query logic explicit and avoids duplicating aggregation in application loops.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">02</span>
+<h3>Bind user input as parameters.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>Intersection, street, year, and camera input are passed as bound parameters. Queries can support search patterns without constructing SQL from raw input.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>The query and its parameter semantics still need to be understandable to the person using the console.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">03</span>
+<h3>Give the same result several useful forms.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>The tool offers ranked tables, time-series plots, and camera locations over a Chicago basemap. The presentation follows the question.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>A geographic background gives context, but it is not an analysis result until the actual data is plotted.</p>
+</div>
+</details>
+</div>
+</section>
+<section class="system-section" aria-labelledby="system-title">
+<div class="system-heading">
+<p class="eyebrow">HOW THE PARTS FIT</p>
+<h2 id="system-title">One product. Connected layers.</h2>
+</div><ol class="system-layers">
+<li><span class="mono">01</span>
+<h3>Question</h3>
+<p>Intersection, year, camera, or street</p>
+</li>
+<li><span class="mono">02</span>
+<h3>SQLite</h3>
+<p>Joins, parameters, and aggregation</p>
+</li>
+<li><span class="mono">03</span>
+<h3>Output</h3>
+<p>Formatted tables and Matplotlib plots</p>
+</li></ol>
+</section>
+<section class="case-section evidence-section" id="evidence" aria-labelledby="evidence-title">
+<div>
+<p class="eyebrow">03 / SHOW THE WORK</p>
+<h2 id="evidence-title">What you can<br><em>inspect.</em>
+</h2>
+</div>
+<div class="prose">
+<p class="large-prose">The portfolio includes the Chicago basemap used by the plotting flow and an example parameterized aggregation query.</p>
+<details class="query-detail">
+<summary>Inspect the example SQL query</summary><pre><code>SELECT Intersections.Intersection,
        SUM(RedViolations.Num_Violations) AS total
 FROM Intersections
 JOIN RedCameras
@@ -166,81 +142,110 @@ JOIN RedViolations
 WHERE strftime('%Y', RedViolations.Violation_Date) = ?
 GROUP BY Intersections.Intersection
 ORDER BY total DESC;</code></pre>
-            </div>
-          </div>
-        </div>
-      </section>
+</details>
+<aside class="evidence-note">
+<h3>Scope of this evidence</h3>
+<p>The map shown is the base layer, not a rendered violations analysis. No performance benchmark or current public-data refresh is claimed.</p>
+</aside>
+</div>
+</section>
+<section class="takeaway">
+<p class="eyebrow">WHAT I TAKE FORWARD</p>
+<p>Choose the question first. Keep its meaning intact through the query, the returned rows, and the final chart.</p>
+</section><a class="next-project" href="onlyplanes.html">
+<div><span class="eyebrow">NEXT PROJECT / 01</span>
+<h2>OnlyPlanes</h2>
+<p>From a moving dot to a flight worth following.</p>
+</div><span class="action-icon icon-right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+<div class="case-contact">
+<p>Want to talk about the work?</p><a class="text-link" href="mailto:haitiandzhu@gmail.com">Get in touch <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+</div>
+</main>
+<footer class="site-footer wrap"><span>© 2026 Haitian Zhu</span><span>Chicago, Illinois</span>
+<div><a href="https://github.com/kiraguriz">GitHub <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a><a href="https://linkedin.com/in/haitian-daniel-zhu">LinkedIn <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a><a href="#main">Back to top <span class="action-icon icon-up" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+</div>
+</footer>
+<dialog class="image-dialog" aria-labelledby="image-dialog-title">
+<div class="dialog-bar">
+<h2 id="image-dialog-title">Project capture</h2><button type="button" class="dialog-close">Close <span aria-hidden="true">×</span></button>
+</div><img class="dialog-image" alt="">
+<p class="dialog-caption">
+</p>
+</dialog>
+<p class="sr-only" role="status" id="copy-status">
+</p>
+<script>
+(() => {
+  const dialog = document.querySelector('.image-dialog');
+  let imageTrigger = null;
+  document.querySelectorAll('[data-image]').forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      if (!dialog || typeof dialog.showModal !== 'function') {
+        window.location.href = button.dataset.image;
+        return;
+      }
+      imageTrigger = button;
+      dialog.querySelector('.dialog-image').src = button.dataset.image;
+      dialog.querySelector('.dialog-image').alt = button.querySelector('img').alt;
+      dialog.querySelector('.dialog-caption').textContent = button.dataset.caption;
+      dialog.showModal();
+    });
+  });
+  dialog?.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  });
+  dialog?.addEventListener('close', () => imageTrigger?.focus());
 
-      <div>
-        <article class="case-built-card">
-          <div class="case-built-head">
-            <span class="studio-chip-dark">04 / What I built</span>
-            <span class="case-built-note">sql · python · plots</span>
-          </div>
-          <h2 id="built-heading" class="studio-display case-built-title">The actual <em>work.</em></h2>
-          <dl class="case-built-list">
-            <div><dt>Queries</dt><dd>Nine analyses over five tables using inner joins, aggregation, correlated subqueries, and <code>strftime</code> date grouping.</dd></div>
-            <div><dt>Stats</dt><dd>A startup summary of camera counts, total violations, and the database's full date range, computed straight from SQL.</dd></div>
-            <div><dt>Plots</dt><dd>matplotlib time series for yearly and monthly trends, plus camera locations annotated over a real Chicago basemap.</dd></div>
-            <div><dt>Safety</dt><dd>Parameterized queries throughout, supporting <code>_</code> and <code>%</code> wildcards while keeping inputs bound.</dd></div>
-          </dl>
-          <div class="case-receipts">
-            <span class="case-receipts-label">Receipts · what the tool answers</span>
-            <div class="case-receipt-list">
-              <div class="case-receipt-row"><span>by intersection</span><span>cameras and violations ranked, with each share of the total</span></div>
-              <div class="case-receipt-row"><span>by time</span><span>violations per year and per month for a given camera</span></div>
-              <div class="case-receipt-row"><span>red vs speed</span><span>side-by-side comparison of the two camera programs for a year</span></div>
-              <div class="case-receipt-row"><span>by street</span><span>cameras on a street, plotted by latitude/longitude on the city map</span></div>
-            </div>
-          </div>
-        </article>
-      </div>
+  document.querySelectorAll('[data-copy]').forEach(button => {
+    if (!navigator.clipboard?.writeText) return;
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        button.textContent = 'Email copied';
+        document.getElementById('copy-status').textContent = 'Email address copied to clipboard.';
+      } catch {
+        button.textContent = 'Use the email link above';
+        document.getElementById('copy-status').textContent = 'Copy unavailable. Use the email link above.';
+      }
+    });
+  });
 
-      <section class="case-numbers" aria-labelledby="numbers-heading">
-        <div class="case-row-grid">
-          <div>
-            <span class="studio-chip-dim">05 / Scope</span>
-            <h2 id="numbers-heading" class="studio-display case-section-title">Scope and verification.</h2>
-          </div>
-          <table class="case-metrics-table">
-            <thead>
-              <tr><th>Dimension</th><th>Value</th><th>Why it matters</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Dataset</td><td>~68 MB SQLite</td><td>Real volume, so the work has to live in SQL</td></tr>
-              <tr><td>Tables</td><td>5 joined</td><td>Intersections, two camera tables, two violation tables</td></tr>
-              <tr><td>Analyses</td><td>9 query options</td><td>Lookup, ranking, trend, comparison, and mapping</td></tr>
-              <tr><td>Output</td><td>Tables + plots</td><td>Same data read as text or as a chart on demand</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+  const links = [...document.querySelectorAll('[data-section]')];
+  const sections = links.map(link => ({link, target: document.getElementById(link.dataset.section)})).filter(item => item.target);
+  let scheduled = false;
+  function syncNavigation() {
+    scheduled = false;
+    if (!sections.length) return;
+    const marker = Math.min(window.innerHeight * .3, 210);
+    let active = null;
+    for (const item of sections) if (item.target.getBoundingClientRect().top <= marker) active = item;
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) active = sections.at(-1);
+    for (const item of sections) {
+      if (item === active) item.link.setAttribute('aria-current','location');
+      else item.link.removeAttribute('aria-current');
+    }
+  }
+  function schedule() {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(syncNavigation); }
+  }
+  window.addEventListener('scroll', schedule, {passive:true});
+  window.addEventListener('resize', schedule);
+  window.addEventListener('hashchange', schedule);
+  window.addEventListener('pageshow', schedule);
+  syncNavigation();
 
-      <section class="case-outcome" aria-labelledby="outcome-heading">
-        <div class="case-row-grid">
-          <div>
-            <span class="studio-chip-dim">06 / What it shows</span>
-            <h2 id="outcome-heading" class="studio-display case-section-title">SQL as the heavy lifting.</h2>
-          </div>
-          <p class="case-prose">This project is where I got comfortable letting the database do the work: expressing a question as a join-and-aggregate query, keeping inputs parameterized, and only then handing tidy rows to Python for formatting or a plot.</p>
-        </div>
-      </section>
+  document.querySelector('.skip-link')?.addEventListener('click', () => {
+    document.getElementById('main')?.focus({preventScroll:true});
+  });
+  document.querySelectorAll('video').forEach(video => {
+    video.addEventListener('play', () => document.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); }));
+  });
+})();
 
-      <section class="case-next-section" aria-label="Next case study">
-        <a class="case-next-card" href="workout-movement-tracker.html?v=20260710">
-          <span>
-            <span class="case-next-label">Back to Case 01 / 05</span>
-            <span class="case-next-title">Workout Movement Tracker — mobile coaching and local data.</span>
-          </span>
-          <span class="case-next-button">Read case <span aria-hidden="true">→</span></span>
-        </a>
-      </section>
-      </div>
-    </main>
-
-    <footer class="studio-footer">
-      <span>© 2026 Haitian Zhu</span>
-      <span>Naperville → Chicago, IL</span>
-    </footer>
-  </body>
-</html>
+</script>
+</body></html>

@@ -1,12 +1,10 @@
-<!doctype html>
-<html lang="en">
-  <head>
+<!doctype html><html lang="en"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'">
-    <title>vBird - Haitian Zhu</title>
+    <title>vBird — Haitian Zhu</title>
     <meta name="description" content="Case study for vBird, a bird identification trainer using Expo, Supabase, data pipelines, and Gemini.">
-    <meta property="og:title" content="vBird - Haitian Zhu">
+    <meta property="og:title" content="vBird — Haitian Zhu">
     <meta property="og:description" content="Expo and Supabase bird-ID trainer with curated species data and release-readiness gates.">
     <meta property="og:image" content="https://kiraguriz.github.io/assets/images/vbird-icon.png">
     <meta property="og:type" content="article">
@@ -14,241 +12,230 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://kiraguriz.github.io/case-studies/vbird.html">
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%234f3dcf'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20fill='white'%20font-family='Inter,system-ui,sans-serif'%20font-weight='700'%20font-size='18'%3EH%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="../assets/css/styles.css?v=20260809m">
-  </head>
-  <body class="studio">
-    <a class="skip-link" href="#main">Skip to content</a>
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260906">
+    </head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner"><a class="wordmark" href="../index.html" aria-label="Haitian Zhu home">Haitian Zhu<span class="wordmark-dot" aria-hidden="true">.</span></a>
+<nav aria-label="Primary"><a aria-current="location" href="../index.html#work">Work</a><a  href="../index.html#about">About</a><a  href="../index.html#contact">Contact</a><a class="resume-link" href="../assets/haitian-zhu-resume.pdf" target="_blank" rel="noopener">Resume <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span><span class="sr-only"> (PDF, opens in a new tab)</span></a>
+</nav>
+</div>
+</header>
+<main id="main" class="wrap case-main" tabindex="-1">
+<div class="case-breadcrumb"><a href="../index.html#work"><span class="action-icon icon-left" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span> Selected work</a><span class="mono">03 / 05</span>
+</div>
+<section class="case-intro" aria-labelledby="case-title">
+<div>
+<p class="eyebrow">vBird / Mobile · learning · data</p>
+<h1 id="case-title">Learn to look.<br>Remember what you see.</h1>
+</div>
+<div class="case-intro-copy">
+<p>A bird-identification trainer with quick visual comparisons, spaced repetition, and a curated data pipeline.</p>
+<dl>
+<div>
+<dt>Role</dt>
+<dd>Solo · app, schema, and pipeline</dd>
+</div>
+<div>
+<dt>When</dt>
+<dd>2025</dd>
+</div>
+</dl>
+</div>
+</section>
+<nav class="case-nav" aria-label="On this page"><a href="#overview" data-section="overview">Overview</a><a href="#decisions" data-section="decisions">Key decisions</a><a href="#evidence" data-section="evidence">Evidence</a><span class="mono">CASE STUDY</span>
+</nav>
+<section class="case-showcase" aria-label="Project visual">
+<div class="project-stage bird-stage">
+<div class="stage-heading"><span class="mono">vBIRD / LEARNING SYSTEM</span><img src="../assets/images/vbird-icon.png" width="46" height="46" alt="vBird icon" loading="lazy">
+</div>
+<p class="bird-phrase">A little practice.<br><em>A lasting memory.</em>
+</p><ol class="learning-modes">
+<li><span class="mono">01 / CASUAL</span><strong>Compare two birds.</strong><span>Same species, or different?</span>
+</li>
+<li><span class="mono">02 / LEARNING</span><strong>Come back to remember.</strong><span>Review paced by FSRS.</span>
+</li></ol>
+<p class="stage-note">Learning structure · editorial diagram</p>
+</div>
+<p class="visual-caption">A closer look at the project’s structure and available materials.</p>
+</section>
+<section class="case-section" id="overview" aria-labelledby="overview-title">
+<div>
+<p class="eyebrow">01 / THE PROBLEM</p>
+<h2 id="overview-title">The learning loop is only as good as its data.</h2>
+</div>
+<div class="prose">
+<p class="large-prose">Comparing two bird photos is a simple interaction. Preparing a trustworthy pair is more involved: species labels, images, facts, and source records have to agree. That preparation belongs upstream of the user’s next swipe.</p>
+<h3>What I owned</h3>
+<p>I built the app and its data system: casual comparisons, an FSRS-based review mode, a Supabase backend, and an offline pipeline that prepares species content before it reaches the interface.</p>
+<p class="stack-line"><span class="mono">BUILT WITH</span>Expo / TypeScript / Supabase / Python</p>
+</div>
+</section>
+<section class="case-section" id="decisions" aria-labelledby="decisions-title">
+<div>
+<p class="eyebrow">02 / KEY DECISIONS</p>
+<h2 id="decisions-title">The choices<br><em>behind the work.</em>
+</h2>
+<p class="section-description">Implementation is a series of decisions. These are the ones that shape this project.</p>
+</div>
+<div class="decision-list">
+<details class="decision" open>
+<summary><span class="mono">01</span>
+<h3>Offer two rhythms of practice.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>Casual mode supports quick same-species comparisons. The learning mode uses FSRS to schedule review, so returning users have a different path from a quick first visit.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>The modes share content, but need distinct expectations about pacing and progress.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">02</span>
+<h3>Prepare content before runtime.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>An offline Python pipeline gathers and shapes material from eBird, Wikidata, Wikipedia, and iNaturalist. Gemini assists extraction; it is a processing tool rather than an original factual source.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>Offline preparation makes validation possible before content reaches the app, at the cost of maintaining a separate pipeline.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">03</span>
+<h3>Keep learning state with explicit ownership.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>Supabase provides the database, authentication, storage, and functions. Row-level security and migrations are part of the schema design.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>Access rules and schema changes must evolve together; naming RLS alone does not prove every policy is correct.</p>
+</div>
+</details>
+</div>
+</section>
+<section class="system-section" aria-labelledby="system-title">
+<div class="system-heading">
+<p class="eyebrow">HOW THE PARTS FIT</p>
+<h2 id="system-title">One product. Connected layers.</h2>
+</div><ol class="system-layers">
+<li><span class="mono">01</span>
+<h3>Preparation</h3>
+<p>Source records and curated species content</p>
+</li>
+<li><span class="mono">02</span>
+<h3>Supabase</h3>
+<p>Species, images, users, and learning state</p>
+</li>
+<li><span class="mono">03</span>
+<h3>Expo</h3>
+<p>Comparison and scheduled-review modes</p>
+</li></ol>
+</section>
+<section class="case-section evidence-section" id="evidence" aria-labelledby="evidence-title">
+<div>
+<p class="eyebrow">03 / SHOW THE WORK</p>
+<h2 id="evidence-title">What you can<br><em>inspect.</em>
+</h2>
+</div>
+<div class="prose">
+<p class="large-prose">This case study describes the app’s learning structure and the data responsibilities documented in the existing portfolio.</p>
+<aside class="evidence-note">
+<h3>Scope of this evidence</h3>
+<p>The visual above explains the two learning modes. It is an editorial diagram, not an application screenshot. A device demonstration is not included.</p>
+</aside>
+</div>
+</section>
+<section class="takeaway">
+<p class="eyebrow">WHAT I TAKE FORWARD</p>
+<p>For an AI-assisted data product, the source trail should survive every transformation between an original record and the final learning card.</p>
+</section><a class="next-project" href="poker.html">
+<div><span class="eyebrow">NEXT PROJECT / 04</span>
+<h2>Networked 3-Card Poker</h2>
+<p>Keeping multiple clients on the same page.</p>
+</div><span class="action-icon icon-right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+<div class="case-contact">
+<p>Want to talk about the work?</p><a class="text-link" href="mailto:haitiandzhu@gmail.com">Get in touch <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+</div>
+</main>
+<footer class="site-footer wrap"><span>© 2026 Haitian Zhu</span><span>Chicago, Illinois</span>
+<div><a href="https://github.com/kiraguriz">GitHub <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a><a href="https://linkedin.com/in/haitian-daniel-zhu">LinkedIn <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a><a href="#main">Back to top <span class="action-icon icon-up" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+</div>
+</footer>
+<dialog class="image-dialog" aria-labelledby="image-dialog-title">
+<div class="dialog-bar">
+<h2 id="image-dialog-title">Project capture</h2><button type="button" class="dialog-close">Close <span aria-hidden="true">×</span></button>
+</div><img class="dialog-image" alt="">
+<p class="dialog-caption">
+</p>
+</dialog>
+<p class="sr-only" role="status" id="copy-status">
+</p>
+<script>
+(() => {
+  const dialog = document.querySelector('.image-dialog');
+  let imageTrigger = null;
+  document.querySelectorAll('[data-image]').forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      if (!dialog || typeof dialog.showModal !== 'function') {
+        window.location.href = button.dataset.image;
+        return;
+      }
+      imageTrigger = button;
+      dialog.querySelector('.dialog-image').src = button.dataset.image;
+      dialog.querySelector('.dialog-image').alt = button.querySelector('img').alt;
+      dialog.querySelector('.dialog-caption').textContent = button.dataset.caption;
+      dialog.showModal();
+    });
+  });
+  dialog?.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  });
+  dialog?.addEventListener('close', () => imageTrigger?.focus());
 
-    <main id="main" class="case-study-page case-study-shell">
-      <aside class="case-study-rail" aria-label="Portfolio navigation">
-        <div class="case-study-rail-inner">
-          <div class="studio-home-person">
-            <div class="studio-home-portrait-frame">
-              <img src="../assets/images/portrait-640.webp" alt="Haitian Zhu at Wuyishan, in front of the Da Hong Pao rock inscription" width="511" height="640" fetchpriority="high">
-            </div>
-            <strong>Haitian Zhu</strong>
-            <span>Naperville → Chicago</span>
-          </div>
-          <div class="studio-home-external" role="group" aria-label="External profiles">
-            <a href="https://github.com/kiraguriz">GitHub</a>
-            <a href="https://linkedin.com/in/haitian-daniel-zhu">LinkedIn</a>
-          </div>
-          <a class="studio-home-opportunity" href="mailto:haitiandzhu@gmail.com">
-            <span class="studio-cta-dot" aria-hidden="true"></span>
-            Open to software internships
-          </a>
-          <nav class="studio-home-rail-nav case-site-nav" aria-label="Portfolio sections">
-            <a href="../index.html#overview"><small>01</small><span>Overview<span>at a glance</span></span></a>
-            <a class="is-active" href="../index.html#work" aria-current="location"><small>02</small><span>Projects<span>reverse chronological</span></span></a>
-            <a href="../index.html#about"><small>03</small><span>About<span>working style</span></span></a>
-            <a href="../assets/haitian-zhu-resume.pdf" download><small>↓</small><span>Resume PDF<span>download one page</span></span></a>
-          </nav>
-          <span class="case-rail-label">Case studies</span>
-          <nav class="case-rail-projects" aria-label="Case studies">
-            <a href="workout-movement-tracker.html?v=20260710"><span>Workout</span><small>01</small></a>
-            <a href="onlyplanes.html?v=20260710"><span>OnlyPlanes</span><small>02</small></a>
-            <a href="vbird.html?v=20260710" aria-current="page"><span>vBird</span><small>03</small></a>
-            <a href="poker.html?v=20260710"><span>Poker</span><small>04</small></a>
-            <a href="chicago-traffic.html?v=20260710"><span>Traffic</span><small>05</small></a>
-          </nav>
-          <a class="case-rail-back" href="../index.html#work">Back to work <span aria-hidden="true">→</span></a>
-        </div>
-      </aside>
+  document.querySelectorAll('[data-copy]').forEach(button => {
+    if (!navigator.clipboard?.writeText) return;
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        button.textContent = 'Email copied';
+        document.getElementById('copy-status').textContent = 'Email address copied to clipboard.';
+      } catch {
+        button.textContent = 'Use the email link above';
+        document.getElementById('copy-status').textContent = 'Copy unavailable. Use the email link above.';
+      }
+    });
+  });
 
-      <div class="case-study-content">
+  const links = [...document.querySelectorAll('[data-section]')];
+  const sections = links.map(link => ({link, target: document.getElementById(link.dataset.section)})).filter(item => item.target);
+  let scheduled = false;
+  function syncNavigation() {
+    scheduled = false;
+    if (!sections.length) return;
+    const marker = Math.min(window.innerHeight * .3, 210);
+    let active = null;
+    for (const item of sections) if (item.target.getBoundingClientRect().top <= marker) active = item;
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) active = sections.at(-1);
+    for (const item of sections) {
+      if (item === active) item.link.setAttribute('aria-current','location');
+      else item.link.removeAttribute('aria-current');
+    }
+  }
+  function schedule() {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(syncNavigation); }
+  }
+  window.addEventListener('scroll', schedule, {passive:true});
+  window.addEventListener('resize', schedule);
+  window.addEventListener('hashchange', schedule);
+  window.addEventListener('pageshow', schedule);
+  syncNavigation();
 
-      <section class="case-hero" aria-labelledby="case-title">
-        <div class="case-evidence-shell">
-          <div class="case-evidence-main">
-            <div class="case-evidence-masthead">
-              <div>
-                <div class="case-evidence-copy">
-                  <span class="studio-chip">★ Case 03 · learning-system evidence</span>
-                  <h1 id="case-title" class="studio-display case-title">vBird <em>trainer.</em></h1>
-                  <p class="case-lede">A North American bird-ID app: swipe two photos, learn with FSRS spaced repetition, and trust a Supabase backend fed by an audit-friendly data pipeline.</p>
-                  <dl class="case-meta" aria-label="vBird project facts">
-                    <div><dt>Role</dt><dd>Product · data · release</dd></div>
-                    <div><dt>Period</dt><dd>2025</dd></div>
-                    <div><dt>Surface</dt><dd>Expo · Supabase</dd></div>
-                    <div><dt>Ownership</dt><dd>App · schema · pipeline</dd></div>
-                  </dl>
-                  <div class="case-actions">
-                    <a class="studio-btn studio-btn-accent" href="#problem-heading">Problem</a>
-                    <a class="studio-btn studio-btn-outline" href="#system-heading">System</a>
-                    <a class="studio-btn studio-btn-outline" href="#built-heading">Ownership</a>
-                  </div>
-                </div>
-                <div class="case-evidence-receipts" role="group" aria-label="vBird evidence">
-                  <div><strong>Learning</strong><span>Casual swipe reps plus an FSRS-scheduled mode for retained practice.</span></div>
-                  <div><strong>Data</strong><span>Pre-labeled pairs from eBird, Wikidata, Wikipedia, and iNaturalist.</span></div>
-                  <div><strong>Backend</strong><span>Supabase Postgres, Auth, Storage, Edge Functions, migrations, and RLS.</span></div>
-                  <div><strong>Release</strong><span>Evidence manifest, legal pages, store listing, screenshots, and privacy checks.</span></div>
-                </div>
-              </div>
+  document.querySelector('.skip-link')?.addEventListener('click', () => {
+    document.getElementById('main')?.focus({preventScroll:true});
+  });
+  document.querySelectorAll('video').forEach(video => {
+    video.addEventListener('play', () => document.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); }));
+  });
+})();
 
-              <aside class="case-evidence-visual case-evidence-visual-vbird" aria-label="vBird app preview">
-                <div class="case-evidence-video-card">
-                  <img src="../assets/images/vbird-icon.png" alt="vBird app icon" width="512" height="512">
-                  <div>
-                    <strong>vBird trainer identity</strong>
-                    <span>Expo · Supabase · FSRS</span>
-                  </div>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="case-row" aria-labelledby="problem-heading">
-        <div class="case-row-grid">
-          <div>
-            <span class="studio-chip-dim">01 / Problem</span>
-            <h2 id="problem-heading" class="studio-display case-section-title">Bird ID is a comparison problem.</h2>
-          </div>
-          <div class="case-prose">
-            <p>Bird identification improves through repeated comparison. vBird turns it into a swipe game &mdash; two photos, same species or not &mdash; with a casual mode for speed and a learning mode that schedules reps with FSRS spaced repetition.</p>
-            <p>Keeping the loop quick is the easy half. The hard half is the data: matching runs on pre-labeled pairs and SQL, not runtime ML, so source quality, image provenance, and species facts all have to line up before a card ever ships.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="case-row" aria-labelledby="approach-heading">
-        <div class="case-row-grid">
-          <div>
-            <span class="studio-chip-dim">02 / Approach</span>
-            <h2 id="approach-heading" class="studio-display case-section-title">Train the eye, audit the data.</h2>
-          </div>
-          <div class="case-pillars">
-            <div class="case-pillar">
-              <span class="case-pillar-num">①</span>
-              <strong>Two loops</strong>
-              <p>A casual mode for quick swipe reps and a learning mode that paces review with an FSRS spaced-repetition schedule.</p>
-            </div>
-            <div class="case-pillar">
-              <span class="case-pillar-num">②</span>
-              <strong>Backend as curriculum</strong>
-              <p>Supabase holds users, learning state, species data, images, and release evidence in one product system with row-level security.</p>
-            </div>
-            <div class="case-pillar">
-              <span class="case-pillar-num">③</span>
-              <strong>AI offline, with receipts</strong>
-              <p>Gemini extracts and shapes content in a build-time pipeline &mdash; never at runtime &mdash; and every fact keeps its source trail.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="case-system" aria-labelledby="system-heading">
-        <div class="case-row-grid">
-          <div>
-            <span class="studio-chip-dim">03 / System</span>
-            <h2 id="system-heading" class="studio-display case-section-title">The learning loop has a data spine.</h2>
-            <p class="case-system-copy">The app reads pre-labeled pairs from Supabase (images served via Cloudflare) while a separate offline pipeline prepares species metadata and audit-friendly assets.</p>
-          </div>
-          <div class="case-system-stack">
-            <div class="case-diagram" role="img" aria-label="vBird system diagram">
-              <div class="case-node"><strong>Expo app</strong><span>casual · learning modes</span><small>SDK 54 · TS strict</small></div>
-              <div class="case-flow">sync →</div>
-              <div class="case-node"><strong>Supabase</strong><span>Postgres · Auth · Storage</span><small>RLS · Cloudflare CDN</small></div>
-              <div class="case-flow">seed →</div>
-              <div class="case-node"><strong>Data pipeline</strong><span>eBird · Wikidata · iNat · Gemini</span><small>offline · source audit</small></div>
-            </div>
-            <div class="case-code-panel">
-              <div class="case-code-head"><span>data shape</span><span>training card</span></div>
-              <pre><code>type SpeciesTrainingCard = {
-  speciesCode: string;
-  commonName: string;
-  images: CuratedImage[];
-  facts: SpeciesFacts;
-  sourceAudit: SourceRecord[];
-};</code></pre>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div>
-        <article class="case-built-card">
-          <div class="case-built-head">
-            <span class="studio-chip-dark">04 / What I built</span>
-            <span class="case-built-note">mobile · data · release gates</span>
-          </div>
-          <h2 id="built-heading" class="studio-display case-built-title">The actual <em>work.</em></h2>
-          <dl class="case-built-list">
-            <div><dt>Mobile</dt><dd>Expo SDK 54 (New Architecture) TypeScript-strict app with a casual swipe mode and an FSRS-scheduled learning mode.</dd></div>
-            <div><dt>Backend</dt><dd>Supabase Postgres, Auth, Storage, Edge Functions, migrations, and row-level security, with Cloudflare in front of Storage.</dd></div>
-            <div><dt>Pipeline</dt><dd>An offline Python + uv flow from eBird → Wikidata → Wikipedia → iNaturalist → Supabase, with Gemini-assisted extraction.</dd></div>
-            <div><dt>Release</dt><dd>An evidence manifest with SHA-256 integrity over external proof files, plus legal pages, store listing, screenshots, and privacy checks.</dd></div>
-          </dl>
-          <div class="case-receipts">
-            <span class="case-receipts-label">Receipts · shipped surfaces</span>
-            <div class="case-receipt-list">
-              <div class="case-receipt-row"><span>training modes</span><span>casual swipe reps plus an FSRS spaced-repetition learning loop</span></div>
-              <div class="case-receipt-row"><span>supabase</span><span>Postgres schema, storage, auth, functions, migrations, and RLS</span></div>
-              <div class="case-receipt-row"><span>pipeline</span><span>offline multi-source data prep, no runtime ML inference</span></div>
-              <div class="case-receipt-row"><span>release gate</span><span>SHA-256 evidence manifest, privacy/legal surfaces, and store readiness</span></div>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <section class="case-showcase" aria-label="vBird detail">
-        <figure class="case-showcase-visual case-logo-visual">
-          <img src="../assets/images/vbird-icon.png" alt="vBird app icon" width="512" height="512" loading="lazy">
-        </figure>
-        <div class="case-memo">
-          <span class="case-memo-label">Detail</span>
-          <p>Generated data is useful only when the <em>source trail</em> stays visible.</p>
-          <span class="case-memo-foot">Species data · learning state</span>
-        </div>
-      </section>
-
-      <section class="case-numbers" aria-labelledby="numbers-heading">
-        <div class="case-row-grid">
-          <div>
-            <span class="studio-chip-dim">05 / Scope</span>
-            <h2 id="numbers-heading" class="studio-display case-section-title">Scope and verification.</h2>
-          </div>
-          <table class="case-metrics-table">
-            <thead>
-              <tr><th>Dimension</th><th>Value</th><th>Why it matters</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Training modes</td><td>Casual · learning</td><td>Quick reps plus an FSRS spaced-repetition loop</td></tr>
-              <tr><td>Matching</td><td>Pre-labeled pairs</td><td>SQL queries, no runtime ML inference</td></tr>
-              <tr><td>Data sources</td><td>5 named sources</td><td>eBird, Wikidata, Wikipedia, iNaturalist, Gemini</td></tr>
-              <tr><td>Release focus</td><td>Evidence gates</td><td>SHA-256 manifest, privacy, legal, and store listing</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="case-outcome" aria-labelledby="outcome-heading">
-        <div class="case-row-grid">
-          <div>
-            <span class="studio-chip-dim">06 / What it shows</span>
-            <h2 id="outcome-heading" class="studio-display case-section-title">AI and data as a system.</h2>
-          </div>
-          <p class="case-prose">vBird shows how I think about AI-assisted product data: generation, validation, auditability, storage, learning UX, and release evidence all have to move together.</p>
-        </div>
-      </section>
-
-      <section class="case-next-section" aria-label="Next case study">
-        <a class="case-next-card" href="poker.html?v=20260710">
-          <span>
-            <span class="case-next-label">Up next · Case 04 / 05</span>
-            <span class="case-next-title">Networked 3-Card Poker — JavaFX over TCP sockets.</span>
-          </span>
-          <span class="case-next-button">Read case <span aria-hidden="true">→</span></span>
-        </a>
-      </section>
-      </div>
-    </main>
-
-    <footer class="studio-footer">
-      <span>© 2026 Haitian Zhu</span>
-      <span>Naperville → Chicago, IL</span>
-    </footer>
-  </body>
-</html>
+</script>
+</body></html>
