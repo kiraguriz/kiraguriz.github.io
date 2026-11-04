@@ -24,10 +24,12 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           # Validate internal links, asset refs, and #fragment targets.
+          # --root-dir resolves root-relative links such as 404.html's /index.html.
           # Exclude bot-blocked / rate-limited hosts so CI stays deterministic.
           args: >-
             --no-progress
             --include-fragments
+            --root-dir '${{ github.workspace }}'
             --exclude 'linkedin\.com'
             --exclude 'fonts\.(googleapis|gstatic)\.com'
             './**/*.html'
