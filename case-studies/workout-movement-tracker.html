@@ -33,7 +33,7 @@
 <dl>
 <div>
 <dt>Role</dt>
-<dd>Team lead · primary contributor</dd>
+<dd>Team lead · data layer and AI coaching</dd>
 </div>
 <div>
 <dt>When</dt>
@@ -61,7 +61,7 @@
 <div class="prose">
 <p class="large-prose">Meals, workouts, body metrics, goals, and previous suggestions become less useful when they live in disconnected flows. The central engineering problem was keeping that context structured and persistent, then passing the right information into coaching features.</p>
 <h3>What I owned</h3>
-<p>I owned SQLite migrations and repositories, integrated AI coaching flows, and connected nutrition and goal features to stored user context. I contributed across implementation layers in a four-person team.</p>
+<p>I led a four-person team building a Flutter workout and nutrition tracker with ML Kit pose detection and HealthKit/Health Connect integration. I owned the SQLite repositories and versioned schema migrations, built the USDA food search, integrated AI coaching flows, and connected nutrition and goal features to stored user context.</p>
 <p class="stack-line"><span class="mono">BUILT WITH</span>Flutter / Dart / SQLite / Gemini / ML Kit</p>
 </div>
 </section>
@@ -87,7 +87,7 @@
 <h3>Put AI inside an existing workflow.</h3><span class="disclosure" aria-hidden="true"></span>
 </summary>
 <div class="decision-body">
-<p>Gemini supports tips, workout suggestions, diet advice, feedback, and goal adjustments. Saved outputs can be revisited alongside the records that informed them.</p>
+<p>Gemini supports tips, workout suggestions, diet advice, feedback, and goal adjustments. Responses are cached by an input fingerprint, so unchanged meals skip a repeat API call, and saved outputs can be revisited alongside the records that informed them.</p>
 <p class="tradeoff"><span class="mono">THE TRADEOFF</span>Persisting an output helps continuity; it does not make the recommendation medically validated.</p>
 </div>
 </details>
@@ -96,7 +96,7 @@
 <h3>Keep nutrition lookup responsive.</h3><span class="disclosure" aria-hidden="true"></span>
 </summary>
 <div class="decision-body">
-<p>The USDA food lookup uses debounced search, enrichment, and local caching. This connects a remote catalog to the diet-tracking flow.</p>
+<p>Search against USDA FoodData Central waits 500 ms after the last keystroke, discards responses that arrive after a newer query, and stores results in SQLite so recently used foods load locally.</p>
 <p class="tradeoff"><span class="mono">THE TRADEOFF</span>Caching reduces repeated lookups, but the interface still needs to distinguish unavailable data from an empty result.</p>
 </div>
 </details>

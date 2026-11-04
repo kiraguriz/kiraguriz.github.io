@@ -3,9 +3,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'">
     <title>OnlyPlanes — Haitian Zhu</title>
-    <meta name="description" content="Case study for the OnlyPlanes aviation mobile app, Fastify backend, and live flight workflow.">
+    <meta name="description" content="Case study for OnlyPlanes: a React Native flight tracker with viewport-scoped WebSocket updates, provider failover, and a Fastify backend.">
     <meta property="og:title" content="OnlyPlanes — Haitian Zhu">
-    <meta property="og:description" content="React Native aviation app with a Fastify backend for live flight tracking and spotting workflows.">
+    <meta property="og:description" content="React Native flight tracker with viewport-scoped WebSocket updates, provider failover, and a Fastify backend.">
     <meta property="og:image" content="https://kiraguriz.github.io/assets/images/onlyplanes-icon.png">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://kiraguriz.github.io/case-studies/onlyplanes.html">
@@ -33,7 +33,7 @@
 <dl>
 <div>
 <dt>Role</dt>
-<dd>Co-designer · sole implementer</dd>
+<dd>Primary engineer · client, API, and shared contracts</dd>
 </div>
 <div>
 <dt>When</dt>
@@ -62,7 +62,7 @@
 <div class="prose">
 <p class="large-prose">A map is only useful when its state is understandable. A plane spotter needs to find an aircraft, inspect its details, and know whether the information is still fresh. I treated loading, missing data, and refresh behavior as part of that same workflow.</p>
 <h3>What I owned</h3>
-<p>I built the client, API, and shared type package. My focus was the handoff between changing aircraft data and a usable phone interface.</p>
+<p>As primary engineer, I built the mobile app, the Fastify API, and the shared type package in one TypeScript monorepo that also serves an admin console. My focus was the handoff between changing aircraft data and a usable phone interface.</p>
 <p class="stack-line"><span class="mono">BUILT WITH</span>React Native / Expo / TypeScript / Fastify / SQLite</p>
 </div>
 </section>
@@ -76,29 +76,38 @@
 <div class="decision-list">
 <details class="decision" open>
 <summary><span class="mono">01</span>
-<h3>Keep the provider behind an API.</h3><span class="disclosure" aria-hidden="true"></span>
+<h3>Send only the sky on screen.</h3><span class="disclosure" aria-hidden="true"></span>
 </summary>
 <div class="decision-body">
-<p>The client uses an application-owned contract rather than depending directly on a flight-data provider. A Fastify service handles polling and cached responses; shared TypeScript types keep the client and server aligned.</p>
-<p class="tradeoff"><span class="mono">THE TRADEOFF</span>The benefit is a smaller client contract. The cost is owning cache behavior, freshness, and backend operations.</p>
+<p>The app subscribes to its current map viewport over a WebSocket, and the server pushes only aircraft inside those bounds. Between updates, the client projects each aircraft forward from its last report on a one-second tick, capped at 30 seconds.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>A projected position is an estimate. The cap keeps a stale report from drifting far from where the aircraft actually was.</p>
 </div>
 </details>
 <details class="decision" >
 <summary><span class="mono">02</span>
-<h3>Let the map lead, then add detail.</h3><span class="disclosure" aria-hidden="true"></span>
+<h3>Keep providers behind an API.</h3><span class="disclosure" aria-hidden="true"></span>
 </summary>
 <div class="decision-body">
-<p>Aircraft markers establish the spatial context. Selecting an aircraft brings its callsign, heading, altitude, and other available details into a supporting sheet.</p>
-<p class="tradeoff"><span class="mono">THE TRADEOFF</span>The detail view needs to stay useful when optional fields are missing.</p>
+<p>The client talks to a Fastify service through shared TypeScript contracts, never to a flight-data provider directly. Identical viewport fetches are deduplicated while in flight, overlapping results keep the freshest report per aircraft, and a provider that hits its quota or cooldown fails over to the next.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>The client contract stays small. The cost is owning quota accounting, freshness, and backend operations.</p>
 </div>
 </details>
 <details class="decision" >
 <summary><span class="mono">03</span>
-<h3>Make verification specific.</h3><span class="disclosure" aria-hidden="true"></span>
+<h3>Bound what a slow client can cost.</h3><span class="disclosure" aria-hidden="true"></span>
 </summary>
 <div class="decision-body">
-<p>The project includes lint, type checks, builds, and Jest checks. The screenshots here show an archived iOS interface capture, with the capture date stated alongside them.</p>
-<p class="tradeoff"><span class="mono">THE TRADEOFF</span>A screenshot demonstrates an interface state; it does not establish current provider availability or an app-store release.</p>
+<p>Each socket has a 1 MB send budget. A client that stays over it for ten seconds is disconnected rather than allowed to grow server memory.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>A phone on a poor connection may be dropped and have to reconnect.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">04</span>
+<h3>Hold agent-written code to the same gates.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>I build with Claude Code and Codex agents on feature branches merged through pull requests. CI runs formatting, type checks, lint, and the server, admin, and shared test suites. A hook blocks destructive shell commands, audit subagents run read-only, and fixes from cross-model review are re-checked with Jest regression tests for backpressure, provider failover, and viewport scheduling.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>Tests establish the cases they name. The screenshots show an archived interface, not current provider availability or an app-store release.</p>
 </div>
 </details>
 </div>
@@ -110,15 +119,15 @@
 </div><ol class="system-layers">
 <li><span class="mono">01</span>
 <h3>Client</h3>
-<p>Map, aircraft selection, and detail states</p>
+<p>Viewport subscription, interpolated markers, and detail states</p>
 </li>
 <li><span class="mono">02</span>
 <h3>API</h3>
-<p>Controlled requests, polling, and caching</p>
+<p>WebSocket fan-out, deduplicated fetches, and provider failover</p>
 </li>
 <li><span class="mono">03</span>
 <h3>Data</h3>
-<p>Flight-provider responses and SQLite storage</p>
+<p>Provider responses, quota state, and SQLite storage</p>
 </li></ol>
 </section>
 <section class="case-section evidence-section" id="evidence" aria-labelledby="evidence-title">
