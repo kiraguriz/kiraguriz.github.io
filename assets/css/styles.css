@@ -2308,3 +2308,145 @@ a:hover .action-icon,a:focus-visible .action-icon {
 .error-page p {
   margin-bottom:22px;
 }
+/* Movement Tracker+ and Litter Lifters (Nov 2026). */
+.featured-project+.featured-project {
+  border-top:1px solid var(--studio-line);
+  padding-top:42px;
+}
+.motion-stage {
+  background:#e3e6f4;
+}
+.motion-stage .stage-heading {
+  color:#3d4163;
+}
+.motion-stage .stage-heading img {
+  width:40px;
+  height:40px;
+  border-radius:9px;
+}
+.motion-stage .stage-note {
+  color:#4a4e6a;
+}
+.litter-stage {
+  background:#e0e9e1;
+  color:#25392b;
+}
+.litter-stage .stage-heading {
+  color:#38503f;
+}
+.litter-stage .stage-note {
+  color:#3f5a46;
+  right:auto;
+  max-width:60%;
+}
+.litter-captures {
+  position:absolute;
+  inset:57px 28px 46px;
+}
+.litter-captures .capture-button {
+  position:absolute;
+  border-radius:10px;
+}
+.litter-captures .litter-desktop {
+  left:0;
+  top:0;
+  width:auto;
+  height:100%;
+  max-width:86%;
+  aspect-ratio:1440/1000;
+}
+.litter-captures .litter-desktop img {
+  height:100%;
+  width:100%;
+  object-fit:cover;
+  object-position:left top;
+}
+.litter-captures .litter-mobile {
+  right:0;
+  bottom:0;
+  width:auto;
+  height:92%;
+  aspect-ratio:320/850;
+  border-radius:12px;
+  border:3px solid #25392b;
+}
+.litter-captures .litter-mobile img {
+  height:100%;
+  width:100%;
+  object-fit:cover;
+  object-position:top;
+}
+.case-showcase .litter-captures {
+  inset:70px auto 52px 50%;
+  width:min(760px,calc(100% - 80px));
+  transform:translateX(-50%);
+}
+.case-showcase .litter-captures .litter-desktop {
+  max-width:80%;
+}
+.evidence-links {
+  flex-wrap:wrap;
+}
+.evidence-links .evidence-thumb {
+  width:110px;
+}
+.evidence-links .evidence-wide {
+  width:240px;
+}
+.evidence-facts {
+  list-style:none;
+  padding:0;
+  margin:24px 0 0;
+}
+.evidence-facts li {
+  display:grid;
+  grid-template-columns:78px 1fr;
+  gap:12px;
+  border-top:1px solid var(--studio-line);
+  padding:12px 0;
+  font-size:15px;
+  line-height:1.55;
+}
+.evidence-facts .mono {
+  font-size:10px;
+  color:var(--studio-muted);
+  padding-top:3px;
+}
+@media(max-width:560px) {
+  .featured-project+.featured-project {
+    padding-top:32px;
+  }
+  .litter-captures,.case-showcase .litter-captures {
+    inset:50px 18px 42px;
+    width:auto;
+    transform:none;
+  }
+  .litter-captures .litter-desktop,.case-showcase .litter-captures .litter-desktop {
+    max-width:88%;
+  }
+  .litter-captures .litter-mobile {
+    height:80%;
+  }
+  .litter-stage .stage-note {
+    max-width:70%;
+  }
+  .case-showcase .litter-stage {
+    height:350px;
+  }
+  .evidence-links {
+    gap:14px;
+  }
+  .evidence-links .evidence-thumb {
+    width:96px;
+  }
+  .evidence-links .evidence-wide {
+    width:180px;
+  }
+  .motion-stage .stage-note {
+    display:none;
+  }
+  .evidence-facts li {
+    grid-template-columns:1fr;
+    gap:4px;
+  }
+}

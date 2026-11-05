@@ -8,7 +8,7 @@ Hand-written static GitHub Pages site. No build step or runtime dependencies.
 python3 -m http.server 8000
 ```
 
-Open http://127.0.0.1:8000/. The homepage and five case studies share `assets/css/styles.css`. Inline vanilla JavaScript enhances image inspection, email copying, and section navigation.
+Open http://127.0.0.1:8000/. The homepage and seven case studies share `assets/css/styles.css`. Inline vanilla JavaScript enhances image inspection, email copying, and section navigation.
 
 ## Pages and compatibility
 
@@ -18,6 +18,6 @@ Open http://127.0.0.1:8000/. The homepage and five case studies share `assets/cs
 
 ## Assets and checks
 
-OnlyPlanes screenshots are archived iOS captures from July 22, 2026; the workout recording is an archived Android demo. Other project illustrations are identified in the page content. Arrow icons derive from Heroicons; see [the license](assets/HEROICONS-LICENSE.txt).
+Movement Tracker+ screenshots are iOS Simulator captures replaying generated pose clips; Litter Lifters screenshots come from a local build with fictional reports (October 12, 2026); OnlyPlanes screenshots are archived iOS captures from July 22, 2026; the workout recording is an archived Android demo. Other project illustrations are identified in the page content. Arrow icons derive from Heroicons; see [the license](assets/HEROICONS-LICENSE.txt).
 
 Before publication, check each page at desktop, tablet, and mobile widths, local links and fragments, metadata, keyboard navigation, and media. Publishing is a separate explicit action.
