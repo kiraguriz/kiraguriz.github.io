@@ -1,0 +1,251 @@
+<!doctype html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'">
+    <title>Litter Lifters — Haitian Zhu</title>
+    <meta name="description" content="Case study for Litter Lifters, a CS 442 team web app for reporting beach litter: a Zod-validated report data layer on Dexie/IndexedDB, release scenarios, and a map-first responsive redesign.">
+    <meta property="og:title" content="Litter Lifters — Haitian Zhu">
+    <meta property="og:description" content="CS 442 team web app: validated report data layer, shared React subscriptions, release scenarios, and a map-first redesign.">
+    <meta property="og:image" content="https://kiraguriz.github.io/assets/images/litter-lifters-og.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kiraguriz.github.io/case-studies/litter-lifters.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://kiraguriz.github.io/case-studies/litter-lifters.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%234f3dcf'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20fill='white'%20font-family='Inter,system-ui,sans-serif'%20font-weight='700'%20font-size='18'%3EH%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20261105">
+    </head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner"><a class="wordmark" href="../index.html" aria-label="Haitian Zhu home">Haitian Zhu<span class="wordmark-dot" aria-hidden="true">.</span></a>
+<nav aria-label="Primary"><a aria-current="location" href="../index.html#work">Work</a><a  href="../index.html#about">About</a><a  href="../index.html#contact">Contact</a><a class="resume-link" href="../assets/haitian-zhu-resume.pdf" target="_blank" rel="noopener">Resume <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span><span class="sr-only"> (PDF, opens in a new tab)</span></a>
+</nav>
+</div>
+</header>
+<main id="main" class="wrap case-main" tabindex="-1">
+<div class="case-breadcrumb"><a href="../index.html#work"><span class="action-icon icon-left" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span> Selected work</a><span class="mono">03 / 07</span>
+</div>
+<section class="case-intro" aria-labelledby="case-title">
+<div>
+<p class="eyebrow">Litter Lifters / Web · data layer · maps</p>
+<h1 id="case-title">One report.<br>Every view agrees.</h1>
+</div>
+<div class="case-intro-copy">
+<p>A four-person CS 442 project that helps volunteers find beach litter, report it, and mark it cleaned. I built the report data layer, wrote both release scenarios, reviewed pull requests, and led the map-first redesign.</p>
+<dl>
+<div>
+<dt>Role</dt>
+<dd>Team of 4 · data layer, scenarios, UI redesign</dd>
+</div>
+<div>
+<dt>When</dt>
+<dd>Sep 2026–present</dd>
+</div>
+</dl>
+</div>
+</section>
+<nav class="case-nav" aria-label="On this page"><a href="#overview" data-section="overview">Overview</a><a href="#decisions" data-section="decisions">Key decisions</a><a href="#evidence" data-section="evidence">Demo & evidence</a><span class="mono">CASE STUDY</span>
+</nav>
+<section class="case-showcase" aria-label="Project visual">
+<div class="project-stage litter-stage">
+<div class="stage-heading"><span class="mono">LITTER LIFTERS / WEB</span><span class="mono">LOCAL BUILD · OCT 2026</span>
+</div>
+<div class="litter-captures"><a class="capture-button litter-desktop" data-image="../assets/images/litter-lifters-desktop.webp" data-caption="Desktop · Local build · October 12, 2026. Starter reports are fictional; basemap © OpenStreetMap contributors." aria-label="Enlarge: Litter Lifters on desktop: report list, map markers, and an open report with Mark as Cleaned" href="../assets/images/litter-lifters-desktop.webp"><img src="../assets/images/litter-lifters-desktop.webp" alt="Litter Lifters on desktop: report list, map markers, and an open report with Mark as Cleaned" width="1440" height="1000" loading="lazy"><span class="zoom-label" aria-hidden="true">View capture <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></span></a><a class="capture-button litter-mobile" data-image="../assets/images/litter-lifters-mobile.webp" data-caption="Phone, 320 px wide · Local build · October 12, 2026. Starter reports are fictional; basemap © OpenStreetMap contributors." aria-label="Enlarge: Litter Lifters on a phone: report list in a bottom sheet over the map" href="../assets/images/litter-lifters-mobile.webp"><img src="../assets/images/litter-lifters-mobile.webp" alt="Litter Lifters on a phone: report list in a bottom sheet over the map" width="320" height="850" loading="lazy"><span class="zoom-label" aria-hidden="true">View capture <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></span></a>
+</div>
+<p class="stage-note">Fictional sample reports · OpenStreetMap basemap</p>
+</div>
+<p class="visual-caption">Local build · October 12, 2026 · Select an image to inspect it.</p>
+</section>
+<section class="case-section" id="overview" aria-labelledby="overview-title">
+<div>
+<p class="eyebrow">01 / THE PROBLEM</p>
+<h2 id="overview-title">A report touches the map, the form, and the details at once.</h2>
+</div>
+<div class="prose">
+<p class="large-prose">Release 1 had to load five fictional sample reports, refuse a report without a location or litter level, save valid ones in the browser, and mark a report cleaned, with both changes still there after a restart. Those rules cross every screen, so they needed one owner and one source of truth.</p>
+<h3>What I owned</h3>
+<p>The report data layer (CS442-12): Zod validation, a Dexie/IndexedDB repository with seeded reports, and shared React subscriptions. I wrote the Release 1 and Release 2 scenarios with their acceptance criteria, reviewed teammates’ pull requests in a Jira-tracked Scrum process, and led the V5 map-first responsive redesign (CS442-39).</p>
+<p class="stack-line"><span class="mono">BUILT WITH</span>React 19 / TypeScript / Vite / Leaflet / Dexie / Zod / Vitest</p>
+</div>
+</section>
+<section class="case-section" id="decisions" aria-labelledby="decisions-title">
+<div>
+<p class="eyebrow">02 / KEY DECISIONS</p>
+<h2 id="decisions-title">The choices<br><em>behind the work.</em>
+</h2>
+<p class="section-description">Implementation is a series of decisions. These are the ones that shape this project.</p>
+</div>
+<div class="decision-list">
+<details class="decision" open>
+<summary><span class="mono">01</span>
+<h3>Reject bad coordinates instead of guessing.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>A shared Zod schema checks latitude and longitude as finite numbers in range. Missing, blank, null, and string coordinates are rejected rather than coerced to zero, while a real zero stays valid. Each issue names its field, so the form can point at the exact problem.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>A stricter form needs clearer errors: a blank submit moves focus to an error summary instead of failing silently.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">02</span>
+<h3>One repository, shared subscriptions.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>Screens read reports through one repository interface backed by Dexie/IndexedDB, and a shared subscription keeps the map, list, form, and details view in step. Mark as Cleaned shows success only after the write resolves, and keeps the previous status with a retry message if it fails.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>Release 1 data lives in each browser, so two people do not see each other’s reports. The interface leaves room to swap in a shared service later.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">03</span>
+<h3>Write the scenario before the code.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>Both release scenarios walk through a fictional volunteer and end in a pass or fail checklist. They also say what is out of scope: in Release 1, Mark as Cleaned changes a status and does not create a cleanup event. Release 2 adds accounts, photos, and cleanup events, and requires the service, not just the interface, to restrict who can create events.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>Explicit boundaries mean saying no to features early, but they gave the team something concrete to test against.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">04</span>
+<h3>Keep the map first on every screen size.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>The redesign lets the map fill the screen. On desktop, a report list and a details panel sit beside it; on phones, the list becomes a draggable bottom sheet. Markers are reachable by keyboard, focus moves into the details and back, and reduced-motion settings turn off transitions.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>More layouts mean more states to check, so each one was inspected in a real browser at several widths.</p>
+</div>
+</details>
+</div>
+</section>
+<section class="system-section" aria-labelledby="system-title">
+<div class="system-heading">
+<p class="eyebrow">HOW THE PARTS FIT</p>
+<h2 id="system-title">One product. Connected layers.</h2>
+</div><ol class="system-layers">
+<li><span class="mono">01</span>
+<h3>React + Leaflet</h3>
+<p>Map, report list, creation form, and details view</p>
+</li><li><span class="mono">02</span>
+<h3>Report data layer</h3>
+<p>Zod validation, repository interface, and shared subscriptions</p>
+</li><li><span class="mono">03</span>
+<h3>Dexie / IndexedDB</h3>
+<p>Browser storage with five fictional seed reports</p>
+</li></ol>
+</section>
+<section class="case-section evidence-section" id="evidence" aria-labelledby="evidence-title">
+<div>
+<p class="eyebrow">03 / SHOW THE WORK</p>
+<h2 id="evidence-title">What you can<br><em>inspect.</em>
+</h2>
+</div>
+<div class="prose">
+<p class="large-prose">Two captures from a local build show the desktop workspace with a report open and the phone layout with its bottom sheet.</p>
+<div class="evidence-links"><a class="capture-button evidence-thumb evidence-wide" data-image="../assets/images/litter-lifters-desktop.webp" data-caption="Desktop · Local build · October 12, 2026. Starter reports are fictional; basemap © OpenStreetMap contributors." aria-label="Enlarge: Desktop report workspace" href="../assets/images/litter-lifters-desktop.webp"><img src="../assets/images/litter-lifters-desktop.webp" alt="Desktop report workspace" width="1440" height="1000" loading="lazy"><span class="zoom-label" aria-hidden="true">View capture <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></span></a><a class="capture-button evidence-thumb" data-image="../assets/images/litter-lifters-mobile.webp" data-caption="Phone, 320 px wide · Local build · October 12, 2026. Starter reports are fictional; basemap © OpenStreetMap contributors." aria-label="Enlarge: Phone report sheet" href="../assets/images/litter-lifters-mobile.webp"><img src="../assets/images/litter-lifters-mobile.webp" alt="Phone report sheet" width="320" height="850" loading="lazy"><span class="zoom-label" aria-hidden="true">View capture <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></span></a>
+</div>
+<ul class="evidence-facts">
+<li><span class="mono">TESTS</span>198 Vitest tests in 18 files, plus zero-warning lint, type checks, and a production build, passing when the redesign was verified.</li>
+<li><span class="mono">BROWSER</span>Checked at 1440, 1200, 820, and 320 px wide and on a 320 × 560 short phone, including keyboard navigation and a report that survives a reload.</li>
+<li><span class="mono">PROCESS</span>Work tracked in Jira (CS442-12 data layer, CS442-39 redesign) and merged through reviewed pull requests.</li>
+</ul>
+<aside class="evidence-note">
+<h3>Scope of this evidence</h3>
+<p>This is a course project in a private class repository, so there is no public link. The captures come from a local build using fictional sample data. Release 2 work by the rest of the team is not claimed here.</p>
+</aside>
+</div>
+</section>
+<section class="takeaway">
+<p class="eyebrow">WHAT I TAKE FORWARD</p>
+<p>Validation and storage are user-facing decisions: they decide what the map is allowed to show.</p>
+</section><a class="next-project" href="workout-movement-tracker.html">
+<div><span class="eyebrow">NEXT PROJECT / 04</span>
+<h2>Workout Movement Tracker</h2>
+<p>Fitness context that survives the next session.</p>
+</div><span class="action-icon icon-right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+<div class="case-contact">
+<p>Want to talk about the work?</p><a class="text-link" href="mailto:haitiandzhu@gmail.com">Get in touch <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+</div>
+</main>
+<footer class="site-footer wrap"><span>© 2026 Haitian Zhu</span><span>Chicago, Illinois</span>
+<div><a href="https://github.com/kiraguriz">GitHub <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a><a href="https://linkedin.com/in/haitian-daniel-zhu">LinkedIn <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a><a href="#main">Back to top <span class="action-icon icon-up" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+</div>
+</footer>
+<dialog class="image-dialog" aria-labelledby="image-dialog-title">
+<div class="dialog-bar">
+<h2 id="image-dialog-title">Project capture</h2><button type="button" class="dialog-close">Close <span aria-hidden="true">×</span></button>
+</div><img class="dialog-image" src="data:," alt="">
+<p class="dialog-caption">
+</p>
+</dialog>
+<p class="sr-only" role="status" id="copy-status">
+</p>
+<script>
+(() => {
+  const dialog = document.querySelector('.image-dialog');
+  let imageTrigger = null;
+  document.querySelectorAll('[data-image]').forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      if (!dialog || typeof dialog.showModal !== 'function') {
+        window.location.href = button.dataset.image;
+        return;
+      }
+      imageTrigger = button;
+      dialog.querySelector('.dialog-image').src = button.dataset.image;
+      dialog.querySelector('.dialog-image').alt = button.querySelector('img').alt;
+      dialog.querySelector('.dialog-caption').textContent = button.dataset.caption;
+      dialog.showModal();
+    });
+  });
+  dialog?.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  });
+  dialog?.addEventListener('close', () => imageTrigger?.focus());
+
+  document.querySelectorAll('[data-copy]').forEach(button => {
+    if (!navigator.clipboard?.writeText) return;
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        button.textContent = 'Email copied';
+        document.getElementById('copy-status').textContent = 'Email address copied to clipboard.';
+      } catch {
+        button.textContent = 'Use the email link above';
+        document.getElementById('copy-status').textContent = 'Copy unavailable. Use the email link above.';
+      }
+    });
+  });
+
+  const links = [...document.querySelectorAll('[data-section]')];
+  const sections = links.map(link => ({link, target: document.getElementById(link.dataset.section)})).filter(item => item.target);
+  let scheduled = false;
+  function syncNavigation() {
+    scheduled = false;
+    if (!sections.length) return;
+    const marker = Math.min(window.innerHeight * .3, 210);
+    let active = null;
+    for (const item of sections) if (item.target.getBoundingClientRect().top <= marker) active = item;
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) active = sections.at(-1);
+    for (const item of sections) {
+      if (item === active) item.link.setAttribute('aria-current','location');
+      else item.link.removeAttribute('aria-current');
+    }
+  }
+  function schedule() {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(syncNavigation); }
+  }
+  window.addEventListener('scroll', schedule, {passive:true});
+  window.addEventListener('resize', schedule);
+  window.addEventListener('hashchange', schedule);
+  window.addEventListener('pageshow', schedule);
+  syncNavigation();
+
+  document.querySelector('.skip-link')?.addEventListener('click', () => {
+    document.getElementById('main')?.focus({preventScroll:true});
+  });
+  document.querySelectorAll('video').forEach(video => {
+    video.addEventListener('play', () => document.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); }));
+  });
+})();
+
+</script>
+</body></html>

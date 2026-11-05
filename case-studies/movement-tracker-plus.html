@@ -1,0 +1,251 @@
+<!doctype html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'">
+    <title>Movement Tracker+ — Haitian Zhu</title>
+    <meta name="description" content="Case study for Movement Tracker+, a native iPhone workout coach built solo for the Meta Global AI Developer Hackathon 2026: on-device rep counting with Apple Vision and coaching from Meta’s Muse model.">
+    <meta property="og:title" content="Movement Tracker+ — Haitian Zhu">
+    <meta property="og:description" content="Native iOS coach: Vision rep counting on the phone, Muse coaching through strict schemas, and a Cloudflare Worker proxy.">
+    <meta property="og:image" content="https://kiraguriz.github.io/assets/images/mtplus-icon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kiraguriz.github.io/case-studies/movement-tracker-plus.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://kiraguriz.github.io/case-studies/movement-tracker-plus.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%234f3dcf'/%3E%3Ctext%20x='50%25'%20y='55%25'%20text-anchor='middle'%20dominant-baseline='middle'%20fill='white'%20font-family='Inter,system-ui,sans-serif'%20font-weight='700'%20font-size='18'%3EH%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20261105">
+    </head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap header-inner"><a class="wordmark" href="../index.html" aria-label="Haitian Zhu home">Haitian Zhu<span class="wordmark-dot" aria-hidden="true">.</span></a>
+<nav aria-label="Primary"><a aria-current="location" href="../index.html#work">Work</a><a  href="../index.html#about">About</a><a  href="../index.html#contact">Contact</a><a class="resume-link" href="../assets/haitian-zhu-resume.pdf" target="_blank" rel="noopener">Resume <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span><span class="sr-only"> (PDF, opens in a new tab)</span></a>
+</nav>
+</div>
+</header>
+<main id="main" class="wrap case-main" tabindex="-1">
+<div class="case-breadcrumb"><a href="../index.html#work"><span class="action-icon icon-left" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span> Selected work</a><span class="mono">01 / 07</span>
+</div>
+<section class="case-intro" aria-labelledby="case-title">
+<div>
+<p class="eyebrow">Movement Tracker+ / iOS · on-device vision · AI</p>
+<h1 id="case-title">The phone counts.<br>The model explains.</h1>
+</div>
+<div class="case-intro-copy">
+<p>A native iPhone workout coach I built solo in one week for the Meta Global AI Developer Hackathon 2026 (Indie track). It grew out of the Workout Movement Tracker, my CS 440 team project.</p>
+<dl>
+<div>
+<dt>Role</dt>
+<dd>Solo · iOS app, rep engine, AI integration, proxy</dd>
+</div>
+<div>
+<dt>When</dt>
+<dd>Oct–Nov 2026</dd>
+</div>
+</dl>
+</div>
+</section>
+<nav class="case-nav" aria-label="On this page"><a href="#overview" data-section="overview">Overview</a><a href="#decisions" data-section="decisions">Key decisions</a><a href="#evidence" data-section="evidence">Demo & evidence</a><span class="mono">CASE STUDY</span>
+</nav>
+<section class="case-showcase" aria-label="Project visual">
+<div class="project-stage sky-stage motion-stage">
+<div class="stage-heading"><span class="mono">MOVEMENT TRACKER+ / iOS</span><img src="../assets/images/mtplus-icon.png" width="46" height="46" alt="Movement Tracker+ app icon">
+</div>
+<div class="capture-pair"><a class="capture-button " data-image="../assets/images/mtplus-live.webp" data-caption="Live set · iOS Simulator replaying a generated pose clip (a scripted stick figure), not a recording of a person." aria-label="Enlarge: Live squat set: rep count, spoken depth cue, and pose skeleton" href="../assets/images/mtplus-live.webp"><img src="../assets/images/mtplus-live.webp" alt="Live squat set: rep count, spoken depth cue, and pose skeleton" width="804" height="1748" loading="lazy"><span class="zoom-label" aria-hidden="true">View capture <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></span></a><a class="capture-button " data-image="../assets/images/mtplus-review.webp" data-caption="Set review · iOS Simulator replaying a generated pose clip (a scripted stick figure), not a recording of a person." aria-label="Enlarge: Set review: per-rep depth trace, scores, and tempo for rep 8" href="../assets/images/mtplus-review.webp"><img src="../assets/images/mtplus-review.webp" alt="Set review: per-rep depth trace, scores, and tempo for rep 8" width="804" height="1748" loading="lazy"><span class="zoom-label" aria-hidden="true">View capture <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></span></a>
+</div>
+<p class="stage-note">Simulator captures · generated motion</p>
+</div>
+<p class="visual-caption">iOS Simulator · November 2026 · Select an image to inspect it.</p>
+</section>
+<section class="case-section" id="overview" aria-labelledby="overview-title">
+<div>
+<p class="eyebrow">01 / THE PROBLEM</p>
+<h2 id="overview-title">Advice is only as good as the rep count under it.</h2>
+</div>
+<div class="prose">
+<p class="large-prose">A camera coach fails quietly: if it miscounts a set, every suggestion after that is built on the wrong numbers. I wanted the measurements to come from the phone, where they can be tested, and the language model to explain them without being allowed to change them.</p>
+<h3>What I owned</h3>
+<p>Everything, as a native rewrite with no code carried over from the class project: the SwiftUI app, the MotionCore rep-counting engine, the Muse integration, Apple Health sync, a Live Activity rest timer, Siri App Shortcuts, English and Simplified Chinese localization, and the Cloudflare Worker that holds the API keys.</p>
+<p class="stack-line"><span class="mono">BUILT WITH</span>Swift 6 / SwiftUI / Apple Vision / GRDB / HealthKit / ActivityKit / Muse / Cloudflare Workers</p>
+</div>
+</section>
+<section class="case-section" id="decisions" aria-labelledby="decisions-title">
+<div>
+<p class="eyebrow">02 / KEY DECISIONS</p>
+<h2 id="decisions-title">The choices<br><em>behind the work.</em>
+</h2>
+<p class="section-description">Implementation is a series of decisions. These are the ones that shape this project.</p>
+</div>
+<div class="decision-list">
+<details class="decision" open>
+<summary><span class="mono">01</span>
+<h3>Measure on the device. Let the model explain.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>MotionCore turns Vision body-pose frames into reps, partial reps, depth, tempo, and velocity loss: a confidence gate, One-Euro smoothing, side locking, and a time-based rep segmenter driven by JSON exercise specs. Muse receives those numbers as facts it must not recount. Reviews come back through strict JSON schemas, and a review that cites a rep that does not exist is rejected. If Muse cannot answer, the app shows an on-device review and labels it.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>The model cannot rescue a counting mistake, so the engine carries most of the risk and most of the tests.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">02</span>
+<h3>Teach a new exercise, then prove it.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>You perform a few reps and say how many you did. The app replays the recording through the engine and saves the movement as a counted exercise only when the replay reproduces that number. Form checks Muse suggests are kept only if every rep still counts with them in place.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>Some demonstrations end up as log-by-hand exercises. That is better than a counter that is wrong from the first set.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">03</span>
+<h3>Keep API keys off the phone.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>The app calls a Cloudflare Worker, never Meta directly. The Worker holds the Muse and USDA keys as secrets, accepts anonymous per-install tokens, allows only approved models, caps reasoning effort, output tokens, and body size per feature, and uses a SQLite Durable Object for atomic per-install and global daily budgets, plus a kill switch.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>Request budgets limit how much can be spent; they are not an exact dollar cap.</p>
+</div>
+</details>
+<details class="decision" >
+<summary><span class="mono">04</span>
+<h3>Make Apple Health writes survive interruptions.</h3><span class="disclosure" aria-hidden="true"></span>
+</summary>
+<div class="decision-body">
+<p>A saved workout, meal, or weight and its Health sync intent commit in the same SQLite transaction, so a crash cannot drop the sync. With partial Health permission, allowed types are written and the rest stay queued until the user grants them.</p>
+<p class="tradeoff"><span class="mono">THE TRADEOFF</span>More states to model and test, in exchange for not losing data the user expects to see in Health.</p>
+</div>
+</details>
+</div>
+</section>
+<section class="system-section" aria-labelledby="system-title">
+<div class="system-heading">
+<p class="eyebrow">HOW THE PARTS FIT</p>
+<h2 id="system-title">One product. Connected layers.</h2>
+</div><ol class="system-layers">
+<li><span class="mono">01</span>
+<h3>SwiftUI app</h3>
+<p>Train, Today, Eat, Me, Live Activity, and App Shortcuts</p>
+</li><li><span class="mono">02</span>
+<h3>MovementKit</h3>
+<p>MotionCore, domain model, GRDB persistence, coach client, and Health bridge</p>
+</li><li><span class="mono">03</span>
+<h3>Cloudflare Worker</h3>
+<p>Muse and USDA proxy with install tokens and daily budgets</p>
+</li></ol>
+</section>
+<section class="case-section evidence-section" id="evidence" aria-labelledby="evidence-title">
+<div>
+<p class="eyebrow">03 / SHOW THE WORK</p>
+<h2 id="evidence-title">What you can<br><em>inspect.</em>
+</h2>
+</div>
+<div class="prose">
+<p class="large-prose">Three Simulator captures show a live set, its review, and a coach proposal waiting for confirmation.</p>
+<div class="evidence-links"><a class="capture-button evidence-thumb" data-image="../assets/images/mtplus-live.webp" data-caption="Live set · iOS Simulator replaying a generated pose clip (a scripted stick figure), not a recording of a person." aria-label="Enlarge: Live set with rep counter and depth cue" href="../assets/images/mtplus-live.webp"><img src="../assets/images/mtplus-live.webp" alt="Live set with rep counter and depth cue" width="804" height="1748" loading="lazy"><span class="zoom-label" aria-hidden="true">View capture <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></span></a><a class="capture-button evidence-thumb" data-image="../assets/images/mtplus-review.webp" data-caption="Set review · iOS Simulator replaying a generated pose clip (a scripted stick figure), not a recording of a person." aria-label="Enlarge: Set review with per-rep measurements" href="../assets/images/mtplus-review.webp"><img src="../assets/images/mtplus-review.webp" alt="Set review with per-rep measurements" width="804" height="1748" loading="lazy"><span class="zoom-label" aria-hidden="true">View capture <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></span></a><a class="capture-button evidence-thumb" data-image="../assets/images/mtplus-coach.webp" data-caption="Coach chat · iOS Simulator. The meal stays a proposal until the user reviews and confirms it." aria-label="Enlarge: Coach chat proposing a breakfast log that waits for confirmation" href="../assets/images/mtplus-coach.webp"><img src="../assets/images/mtplus-coach.webp" alt="Coach chat proposing a breakfast log that waits for confirmation" width="804" height="1748" loading="lazy"><span class="zoom-label" aria-hidden="true">View capture <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></span></a>
+</div>
+<ul class="evidence-facts">
+<li><span class="mono">TESTS</span>1,184 Swift tests across seven modules and 146 proxy tests, run by GitHub Actions on every push.</li>
+<li><span class="mono">DEVICE</span>On an iPhone 17 Pro Max front camera: 30 fps, with Vision pose estimation at about 15 ms per frame (p50).</li>
+<li><span class="mono">SERVICE</span>Deployed Worker checked end to end with real Muse set reviews, debriefs, coach chat, meal photos, and USDA search.</li>
+</ul>
+<aside class="evidence-note">
+<h3>Scope of this evidence</h3>
+<p>The captures replay generated pose clips in the Simulator. The rep counter has been checked against generated motion only (24 of 24 synthetic clips counted exactly), and the engine was tuned on that generator, so this is a regression check, not a measure of accuracy on people. Real-person accuracy is not yet measured.</p>
+</aside>
+</div>
+</section>
+<section class="takeaway">
+<p class="eyebrow">WHAT I TAKE FORWARD</p>
+<p>An AI feature is easier to trust when the model is never the source of truth for the numbers it talks about.</p>
+</section><a class="next-project" href="onlyplanes.html">
+<div><span class="eyebrow">NEXT PROJECT / 02</span>
+<h2>OnlyPlanes</h2>
+<p>From a moving dot to a flight worth following.</p>
+</div><span class="action-icon icon-right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+<div class="case-contact">
+<p>Want to talk about the work?</p><a class="text-link" href="mailto:haitiandzhu@gmail.com">Get in touch <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+</div>
+</main>
+<footer class="site-footer wrap"><span>© 2026 Haitian Zhu</span><span>Chicago, Illinois</span>
+<div><a href="https://github.com/kiraguriz">GitHub <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a><a href="https://linkedin.com/in/haitian-daniel-zhu">LinkedIn <span class="action-icon icon-external" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a><a href="#main">Back to top <span class="action-icon icon-up" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></span></a>
+</div>
+</footer>
+<dialog class="image-dialog" aria-labelledby="image-dialog-title">
+<div class="dialog-bar">
+<h2 id="image-dialog-title">Project capture</h2><button type="button" class="dialog-close">Close <span aria-hidden="true">×</span></button>
+</div><img class="dialog-image" src="data:," alt="">
+<p class="dialog-caption">
+</p>
+</dialog>
+<p class="sr-only" role="status" id="copy-status">
+</p>
+<script>
+(() => {
+  const dialog = document.querySelector('.image-dialog');
+  let imageTrigger = null;
+  document.querySelectorAll('[data-image]').forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      if (!dialog || typeof dialog.showModal !== 'function') {
+        window.location.href = button.dataset.image;
+        return;
+      }
+      imageTrigger = button;
+      dialog.querySelector('.dialog-image').src = button.dataset.image;
+      dialog.querySelector('.dialog-image').alt = button.querySelector('img').alt;
+      dialog.querySelector('.dialog-caption').textContent = button.dataset.caption;
+      dialog.showModal();
+    });
+  });
+  dialog?.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  });
+  dialog?.addEventListener('close', () => imageTrigger?.focus());
+
+  document.querySelectorAll('[data-copy]').forEach(button => {
+    if (!navigator.clipboard?.writeText) return;
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        button.textContent = 'Email copied';
+        document.getElementById('copy-status').textContent = 'Email address copied to clipboard.';
+      } catch {
+        button.textContent = 'Use the email link above';
+        document.getElementById('copy-status').textContent = 'Copy unavailable. Use the email link above.';
+      }
+    });
+  });
+
+  const links = [...document.querySelectorAll('[data-section]')];
+  const sections = links.map(link => ({link, target: document.getElementById(link.dataset.section)})).filter(item => item.target);
+  let scheduled = false;
+  function syncNavigation() {
+    scheduled = false;
+    if (!sections.length) return;
+    const marker = Math.min(window.innerHeight * .3, 210);
+    let active = null;
+    for (const item of sections) if (item.target.getBoundingClientRect().top <= marker) active = item;
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) active = sections.at(-1);
+    for (const item of sections) {
+      if (item === active) item.link.setAttribute('aria-current','location');
+      else item.link.removeAttribute('aria-current');
+    }
+  }
+  function schedule() {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(syncNavigation); }
+  }
+  window.addEventListener('scroll', schedule, {passive:true});
+  window.addEventListener('resize', schedule);
+  window.addEventListener('hashchange', schedule);
+  window.addEventListener('pageshow', schedule);
+  syncNavigation();
+
+  document.querySelector('.skip-link')?.addEventListener('click', () => {
+    document.getElementById('main')?.focus({preventScroll:true});
+  });
+  document.querySelectorAll('video').forEach(video => {
+    video.addEventListener('play', () => document.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); }));
+  });
+})();
+
+</script>
+</body></html>
